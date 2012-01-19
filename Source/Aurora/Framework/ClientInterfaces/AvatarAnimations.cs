@@ -38,7 +38,7 @@ namespace Aurora.Framework
 
         public AvatarAnimations()
         {
-            using (XmlTextReader reader = new XmlTextReader(Constants.PathResources + "\Avatar.Animations.xml"))
+            using (XmlTextReader reader = new XmlTextReader(Constants.PathResources + "/Avatar.Animations.xml"))
             {
                 XmlDocument doc = new XmlDocument();
                 doc.Load(reader);

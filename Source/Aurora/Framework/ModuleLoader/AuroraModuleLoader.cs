@@ -50,7 +50,7 @@ namespace Aurora.Framework
         /// <returns></returns>
         public static List<T> PickupModules<T>()
         {
-            return LoadModules<T>(Util.BasePathCombine(""));
+            return LoadModules<T>(Util.BasePathCombine(Constants.PathModules));
         }
 
         /// <summary>

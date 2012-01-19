@@ -301,7 +301,7 @@ namespace Aurora.Simulation.Base
             msg += "\r\n";
             msg += "Application is terminating: " + isTerminating.ToString() + "\r\n";
 
-            MainConsole.Instance.ErrorFormat("[APPLICATION]: {0}", msg);
+            //MainConsole.Instance.ErrorFormat("[APPLICATION]: {0}", msg);
 
             handleException(msg, ex);
         }

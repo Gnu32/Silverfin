@@ -1,15 +1,23 @@
-# Visual Studio Generated stuff
+# Visual Studio Generated stuff and junk files
 .project
 .settings
 *.csproj
 *.csproj.user
+*.sln.cache
 *.build
 *.mdb
 *.mdp
 *.mds
 *.pdb
+*.log
 *.pidb
 *.dll.build
+*.build
+*.sln
+*.suo
+*~
+*.bak
+*.vshost.*
 *.VisualState.xml
 */*/obj
 */*/*/obj
@@ -27,6 +35,14 @@
 # User Generated stuff
 Compile.*.bat
 
+# Distribution Config Files
+*.ini
+
+# Distribution Compiled Files
+Distribution/Libraries/Aurora.*.dll
+Distribution/Libraries/OpenSim.*.dll
+Distribution/Libraries/SmartThreadPool.dll
+
 # Distribution files
 Distribution/Debug/*.dll
 Distribution/*.dll.mdb
@@ -41,9 +57,6 @@ Distribution/ScriptEngines/*/*.dll
 Distribution/ScriptEngines/*/*.state
 Distribution/*.maddin
 Distribution/*.exe
-Distribution/*.ini
-Distribution/*.ini.old
-Distribution/*.log
 Distribution/*.abackup
 Distribution/j2kDecodeCache
 Distribution/Physics*
@@ -55,49 +68,12 @@ Distribution/DefaultInventory
 Distribution/ObjectCache
 Distribution/assetcache
 Distribution/estate_settings.xml
-Distribution/config-include/CenomeCache.ini
-Distribution/config-include/FlotsamCache.ini
-Distribution/config-include/GridCommon.ini
-Distribution/config-include/StandaloneCommon.ini
-Distribution/OpenSim.Grid.AssetInventoryServer.log
-Distribution/OpenSim.Grid.AssetServer.log
-Distribution/OpenSim.Grid.GridServer.log
-Distribution/OpenSim.Grid.InventoryServer.log
-Distribution/OpenSim.Grid.MessagingServer.log
-Distribution/OpenSim.Grid.UserServer.log
-Distribution/OpenSim.log
 Distribution/*.manifest
 Distribution/crashes/
-Distribution/AuroraServerConfiguration/*/*.ini
-Distribution/AuroraServerConfiguration/*/*.ini.old
-Distribution/AuroraServerConfiguration/*.ini
-Distribution/AuroraServerConfiguration/*.ini.old
-Distribution/Configuration/*/*.ini
-Distribution/Configuration/*/*.ini.old
-Distribution/Configuration/*.ini
-Distribution/Configuration/*.ini.old
-Distribution/MapTiles/*
-Distribution/MapAPI_tileCache/*
-Aurora.build
-Aurora.sln
-Aurora.suo
-Prebuild/Prebuild.build
-Prebuild/Prebuild.sln
-TestResult.xml
-TAGS
-*~
-*.bak
-*.vshost.*
-Makefile.local
 Distribution/.version
 Distribution/Aurora.version
-*.db-journal
-addon-modules/*/
 TODO.txt
 
 #Keepers
 !Libraries/*.dll
 !Libraries/AlternativeODE/*.dll
-*.sln.cache
-Distribution/Libraries/Aurora.*.dll
-Distribution/Libraries/SmartThreadPool.dll

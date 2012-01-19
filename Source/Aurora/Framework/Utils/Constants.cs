@@ -34,9 +34,10 @@ namespace Aurora.Framework
         public const float TerrainCompression = 100.0f;
         public const int MinRegionSize = 16;
 
+        public const string PathModules = "Libraries";
         public const string PathResources = "Resources";
-        public const string PathWWW = PathResources + "\WWW";
-        public const string PathConfigGrid = "Config.Grid";
+        public const string PathWWW = PathResources + "/WWW";
+        public const string PathConfigGrid = "Config";
         public const string PathConfigServer = "Config.Server";
 
     }
