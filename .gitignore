@@ -98,3 +98,6 @@ TODO.txt
 #Keepers
 !Libraries/*.dll
 !Libraries/AlternativeODE/*.dll
+*.sln.cache
+Distribution/Libraries/Aurora.*.dll
+Distribution/Libraries/SmartThreadPool.dll
