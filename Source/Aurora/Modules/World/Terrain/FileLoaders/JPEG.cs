@@ -85,7 +85,7 @@ namespace Aurora.Modules.Terrain.FileLoaders
 
         private static Bitmap CreateBitmapFromMap(ITerrainChannel map)
         {
-            Bitmap gradientmapLd = new Bitmap("defaultstripe.png");
+            Bitmap gradientmapLd = new Bitmap(Constants.PathResources + "/MapGradient.png");
 
             int pallete = gradientmapLd.Height;
 

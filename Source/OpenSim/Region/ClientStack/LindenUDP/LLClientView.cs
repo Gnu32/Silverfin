@@ -12757,7 +12757,7 @@ namespace OpenSim.Region.ClientStack.LindenUDP
 
         private void InitDefaultAnimations()
         {
-            using (XmlTextReader reader = new XmlTextReader("data/avataranimations.xml"))
+            using (XmlTextReader reader = new XmlTextReader(Constants.PathResources + "\Avatar.Animations.xml"))
             {
                 XmlDocument doc = new XmlDocument();
                 doc.Load(reader);

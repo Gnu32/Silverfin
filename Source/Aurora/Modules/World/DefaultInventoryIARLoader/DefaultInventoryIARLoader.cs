@@ -53,7 +53,7 @@ namespace Aurora.Modules.DefaultInventoryIARLoader
             m_registry = registry;
 
             IConfig libConfig = source.Configs["InventoryIARLoader"];
-            const string pLibrariesLocation = "DefaultInventory/";
+            const string pLibrariesLocation = Constants.PathResources + "/DefaultInventory/";
             AddDefaultAssetTypes();
             if (libConfig != null)
             {

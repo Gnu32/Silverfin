@@ -120,7 +120,7 @@ namespace Aurora.Modules.Archivers
             try
             {
                 RegistryKey key = Registry.ClassesRoot.CreateSubKey(ext + "\\DefaultIcon");
-                key.SetValue("", Application.StartupPath + "\\CrateDownload.ico");
+                key.SetValue("", Application.StartupPath + "\\Resources\\Icons\\abackup.ico");
                 key.Close();
             }
             catch

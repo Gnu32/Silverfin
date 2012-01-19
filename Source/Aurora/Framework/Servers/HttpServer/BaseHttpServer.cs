@@ -1693,7 +1693,7 @@ namespace Aurora.Framework.Servers.HttpServer
 
         public string GetHTTP404(string host)
         {
-            string file = Path.Combine(".", "http_404.html");
+            string file = Path.Combine(Constants.PathWWW, "Error.404.html");
             if (!File.Exists(file))
                 return getDefaultHTTP404(host);
 
@@ -1705,7 +1705,7 @@ namespace Aurora.Framework.Servers.HttpServer
 
         public string GetHTTP500()
         {
-            string file = Path.Combine(".", "http_500.html");
+            string file = Path.Combine(Constants.PathWWW, "Error.500.html");
             if (!File.Exists(file))
                 return getDefaultHTTP500();
 

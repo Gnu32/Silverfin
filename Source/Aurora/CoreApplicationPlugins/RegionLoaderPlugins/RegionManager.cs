@@ -52,7 +52,7 @@ namespace Aurora.Modules.RegionLoader
         private bool m_changingRegion = false;
         private bool m_textHasChanged = false;
         private readonly SceneManager m_sceneManager;
-        private string m_defaultRegionsLocation = "DefaultRegions";
+        private string m_defaultRegionsLocation = Constants.PathResources + "/DefaultRegions";
 
         private readonly Timer m_timer = new Timer ();
         private readonly List<NoOp> m_timerEvents = new List<NoOp> ();
@@ -678,7 +678,7 @@ Note: Neither 'None' nor 'Soft' nor 'Medium' start the heartbeats immediately.")
         {
             RegionInfo region = m_connector.GetRegionInfo(currentRegionID);
             string html;
-            string path = Util.BasePathCombine(System.IO.Path.Combine("data", "RegionManager.html"));
+            string path = Util.BasePathCombine(System.IO.Path.Combine(Constants.PathWWW, "RegionManager.html"));
             if (System.IO.File.Exists(path) && region != null)
             {
                 html = System.IO.File.ReadAllText(path);

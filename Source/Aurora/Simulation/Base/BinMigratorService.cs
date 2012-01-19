@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using Nini.Ini;
 using Nini.Config;
+using Aurora.Framework;
 
 namespace Aurora.Simulation.Base
 {
@@ -86,36 +87,36 @@ namespace Aurora.Simulation.Base
 
         public void RunMigration3()
         {
-            IniMigrator.UpdateIniFile("Configuration/Standalone/Standalone.ini", "AuroraConnectors",
+            IniMigrator.UpdateIniFile(Constants.PathConfigGrid + "/Standalone/Standalone.ini", "AuroraConnectors",
                 new[] { "DoRemoteCalls", "AllowRemoteCalls" }, new[] { "False", "False" },
                 new[] { MigratorAction.Add, MigratorAction.Add });
 
-            IniMigrator.UpdateIniFile("Configuration/Standalone/StandaloneIWC.ini", "AuroraConnectors",
+            IniMigrator.UpdateIniFile(Constants.PathConfigGrid + "/Standalone/StandaloneIWC.ini", "AuroraConnectors",
                 new[] { "DoRemoteCalls", "AllowRemoteCalls" }, new[] { "False", "False" },
                 new[] { MigratorAction.Add, MigratorAction.Add });
 
-            IniMigrator.UpdateIniFile("Configuration/Grid/Grid.ini", "AuroraConnectors",
+            IniMigrator.UpdateIniFile(Constants.PathConfigGrid + "/Grid/Grid.ini", "AuroraConnectors",
                 new[] { "DoRemoteCalls", "AllowRemoteCalls" }, new[] { "True", "False" },
                 new[] { MigratorAction.Add, MigratorAction.Add });
 
-            IniMigrator.UpdateIniFile("AuroraServerConfiguration/Main.ini", "AuroraConnectors",
+            IniMigrator.UpdateIniFile(Constants.PathConfigServer + "/Main.ini", "AuroraConnectors",
                 new[] { "DoRemoteCalls", "AllowRemoteCalls" }, new[] { "False", "True" },
                 new[] { MigratorAction.Add, MigratorAction.Add });
         }
 
         public void RunMigration4()
         {
-            IniMigrator.UpdateIniFile("Configuration/Grid/Grid.ini", "AuroraConnectors",
+            IniMigrator.UpdateIniFile(Constants.PathConfigGrid + "/Grid/Grid.ini", "AuroraConnectors",
                 new[] { "EstateConnector" }, new[] { "LocalConnector" },
                 new[] { MigratorAction.Add, MigratorAction.Add });
-            IniMigrator.UpdateIniFile("AuroraServerConfiguration/Main.ini", "RegionPermissions",
+            IniMigrator.UpdateIniFile(Constants.PathConfigServer + "/Main.ini", "RegionPermissions",
                 new[] { "DefaultRegionThreatLevel" }, new[] { "High" },
                 new[] { MigratorAction.Add, MigratorAction.Add });
         }
 
         public void RunMigration5()
         {
-            IniMigrator.UpdateIniFile("AuroraServerConfiguration/Main.ini", "RegionPermissions",
+            IniMigrator.UpdateIniFile(Constants.PathConfigServer + "/Main.ini", "RegionPermissions",
                 new[] { "Threat_Level_None", "Threat_Level_Low", "Threat_Level_Medium", "Threat_Level_High","Threat_Level_Full" },
                 new[] { "", "", "", "", ""},
                 new[] { MigratorAction.Add, MigratorAction.Add, MigratorAction.Add, MigratorAction.Add, MigratorAction.Add });

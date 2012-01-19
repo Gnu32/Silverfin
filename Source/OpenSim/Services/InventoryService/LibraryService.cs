@@ -114,7 +114,7 @@ namespace OpenSim.Services.InventoryService
             List<IDefaultLibraryLoader> Loaders = AuroraModuleLoader.PickupModules<IDefaultLibraryLoader>();
             try
             {
-                IniConfigSource iniSource = new IniConfigSource("DefaultInventory/Inventory.ini",
+                IniConfigSource iniSource = new IniConfigSource(Constants.PathResources + "/DefaultInventory/Inventory.ini",
                                                                 IniFileType.AuroraStyle);
                 if (iniSource != null)
                 {

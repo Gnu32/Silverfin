@@ -22,7 +22,7 @@ namespace Aurora.Modules.OpenRegionSettingsModule
         {
             DataManager.DataManager.RegisterPlugin(this);
 
-            string path = Util.BasePathCombine(System.IO.Path.Combine("data", "OpenRegionSettingsPage.html"));
+            string path = Util.BasePathCombine(System.IO.Path.Combine(Constants.PathWWW, "OpenRegionSettingsPage.html"));
             if(System.IO.File.Exists(path))
                 HTMLPage = System.IO.File.ReadAllText(path);
         }
