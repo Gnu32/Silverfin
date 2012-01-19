@@ -1,0 +1,58 @@
+;;
+;; Please don't change this file.
+;; All optional settings are in GridCommon.ini.example,
+;; which you can copy and change.
+;;
+
+[Modules]
+    EntityTransferModule = BasicEntityTransferModule
+    InventoryAccessModule = BasicInventoryAccessModule
+
+[AuroraConnectors]
+    AbuseReportsConnector = LocalConnector
+    AvatarArchiverConnector = LocalConnector
+    ScriptDataConnector = LocalConnector
+    RegionInfoConnector = LocalConnector
+    ParcelConnector = LocalConnector
+    WebStatsDataConnector = LocalConnector
+    AssetConnector = RemoteConnector
+    GroupsConnector = RemoteConnector
+    AgentConnector = RemoteConnector
+    RegionConnector = RemoteConnector
+    ProfileConnector = RemoteConnector
+    EstateConnector = LocalConnector
+    OfflineMessagesConnector = RemoteConnector
+    DirectoryServiceConnector = RemoteConnector
+    MuteListConnector = RemoteConnector
+    EmailConnector = RemoteConnector
+
+    DoRemoteCalls = True
+    AllowRemoteCalls = False
+[Configuration]
+    UseRegistrationService = false
+
+[Handlers]
+
+    AbuseReportHandler = AbuseReportsConnector
+    AgentInfoHandler = AgentInfoConnector
+    AssetHandler = AssetServicesConnector
+    AsyncMessageRequesterServiceHandler = AsyncMessageRequesterService
+    AsyncMessagePostServiceHandler = RemoteAsyncMessagePostService
+    AuthenticationHandler = PasswordAuthenticationService
+    AvatarHandler = AvatarServicesConnector
+    ConfigurationHandler = ConfigurationService
+    EventQueueHandler = EventQueueServicesConnector
+    FreeSwitchHandler = RemoteFreeswitchConnector
+    FriendsHandler = FriendsServicesConnector
+    GridHandler = GridServicesConnector
+    InventoryHandler = XInventoryServicesConnector
+    MessagingServiceInHandler = MessagingServiceInHandler
+    SyncMessagePosterServiceHandler = RemoteSyncMessagePosterService
+    UserAccountHandler = UserAccountServicesConnector
+
+    SimulationHandler = SimulationServiceConnector
+    SimulationInHandler = SimulationServiceInConnector
+    SimulationInHandlerPort = 0
+    ;; If you are in a secure closed grid, you can enable this safely, otherwise, enable at your own risk!
+    ;; Disables objects being moved into our regions from regions outside of this instance (works for the ones in our instance)
+    AllowIncomingForeignObjects = false
