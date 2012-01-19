@@ -92,39 +92,39 @@
       </Options>
     </Configuration>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Framework" path="Sources/Aurora/Framework" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.Framework" path="Source/Aurora/Framework" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/Libraries/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Data"/>
@@ -148,84 +148,84 @@
     </Project>
 
     <!-- Physics Plug-ins -->
-    <Project frameworkVersion="v3_5" name="Aurora.Physics.BasicPhysicsPlugin" path="Sources/Aurora/Physics/BasicPhysicsPlugin" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.Physics.BasicPhysicsPlugin" path="Source/Aurora/Physics/BasicPhysicsPlugin" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       
       <Reference name="Aurora.Framework"/>
       
-      <Reference name="Nini" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverseTypes" />
       
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Physics.Meshing" path="Sources/Aurora/Physics/Meshing" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.Physics.Meshing" path="Source/Aurora/Physics/Meshing" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
 	  <Reference name="System.Core"/>
       <Reference name="System.Drawing"/>
@@ -244,39 +244,39 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="OpenSim.Region.Framework" path="Sources/OpenSim/Region/Framework" type="Library">
+    <Project frameworkVersion="v3_5" name="OpenSim.Region.Framework" path="Source/OpenSim/Region/Framework" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Drawing"/>
@@ -287,13 +287,13 @@
       <Reference name="Aurora.Simulation.Base"/>
       <Reference name="Aurora.Framework"/>
 
-      <Reference name="DotNetOpenMail" path="../../../Distribution/"/>
-      <Reference name="Nini" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
+      <Reference name="DotNetOpenMail" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
       <Reference name="SmartThreadPool"/>
-      <Reference name="XMLRPC" path="../../../Distribution/"/>
+      <Reference name="XMLRPC" />
 
       <Files>
         <Match pattern="*.cs" recurse="true">
@@ -302,39 +302,39 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="OpenSim.Services" path="Sources/OpenSim/Services" type="Library">
+    <Project frameworkVersion="v3_5" name="OpenSim.Services" path="Source/OpenSim/Services" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Data"/>
@@ -349,53 +349,53 @@
       <Reference name="Aurora.Framework"/>
       <Reference name="OpenSim.Region.Framework"/>
 
-      <Reference name="DotNetOpenId" path="../../Distribution/"/>
-      <Reference name="GlynnTucker.Cache" path="../../Distribution/"/>
-      <Reference name="log4net" path="../../Distribution/"/>
-      <Reference name="Nini" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../Distribution/"/>
-      <Reference name="XMLRPC" path="../../Distribution/"/>
+      <Reference name="DotNetOpenId" />
+      <Reference name="GlynnTucker.Cache" />
+      <Reference name="log4net" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
+      <Reference name="XMLRPC" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.DataManager" path="Sources/Aurora/DataManager" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.DataManager" path="Source/Aurora/DataManager" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Data"/>
@@ -403,50 +403,50 @@
       
       <Reference name="Aurora.Framework"/>
 
-      <Reference name="C5" path="../../Distribution/"/>
-      <Reference name="Nini" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../Distribution/"/>
+      <Reference name="C5" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
       
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.DataManager.MySQL" path="Sources/Aurora/DataManagerPlugins/MySQL" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.DataManager.MySQL" path="Source/Aurora/DataManagerPlugins/MySQL" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
 	  <Reference name="System.Data"/>
@@ -457,12 +457,12 @@
 	  <Reference name="Aurora.Framework"/>
 	  <Reference name="OpenSim.Region.Framework"/>
 		
-      <Reference name="C5" path="../../../Distribution/"/>
-      <Reference name="MySql.Data" path="../../../Distribution/"/>
-      <Reference name="Nini" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
-	  <Reference name="OpenMetaverse.StructuredData" path="../../../Distribution/"/>
+      <Reference name="C5" />
+      <Reference name="MySql.Data" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverseTypes" />
+	  <Reference name="OpenMetaverse.StructuredData" />
       
       <Files>
         <Match pattern="*.cs" recurse="true"/>
@@ -470,39 +470,39 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.DataManager.MSSQL" path="Sources/Aurora/DataManagerPlugins/MSSQL" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.DataManager.MSSQL" path="Source/Aurora/DataManagerPlugins/MSSQL" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Data"/>
@@ -513,11 +513,11 @@
       <Reference name="Aurora.Framework"/>
 	  <Reference name="OpenSim.Region.Framework"/>
 
-      <Reference name="C5" path="../../../Distribution/"/>
-      <Reference name="Nini" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
-	  <Reference name="OpenMetaverse.StructuredData" path="../../../Distribution/"/>
+      <Reference name="C5" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverseTypes" />
+	  <Reference name="OpenMetaverse.StructuredData" />
       
       <Files>
         <Match pattern="*.cs" recurse="true"/>
@@ -525,39 +525,39 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.DataManager.SQLite" path="Sources/Aurora/DataManagerPlugins/SQLite" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.DataManager.SQLite" path="Source/Aurora/DataManagerPlugins/SQLite" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Data"/>
@@ -568,13 +568,13 @@
       <Reference name="Aurora.Framework"/>
       <Reference name="OpenSim.Region.Framework"/>
 
-      <Reference name="C5" path="../../../Distribution/"/>
-      <Reference name="System.Data.SQLite" path="../../../Distribution/"/>
-      <Reference name="Nini" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
-      <Reference name="XMLRPC" path="../../../Distribution/"/>
+      <Reference name="C5" />
+      <Reference name="System.Data.SQLite" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
+      <Reference name="XMLRPC" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
@@ -582,39 +582,39 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Services.DataService" path="Sources/Aurora/Services/DataService" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.Services.DataService" path="Source/Aurora/Services/DataService" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Data"/>
@@ -629,50 +629,50 @@
       <Reference name="Aurora.Simulation.Base"/>
       <Reference name="Aurora.Framework"/>
 
-      <Reference name="C5" path="../../../Distribution/"/>
-      <Reference name="Nini" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
+      <Reference name="C5" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
   
-    <Project frameworkVersion="v3_5" name="OpenSim.Region.ClientStack.LindenUDP" path="Sources/OpenSim/Region/ClientStack/LindenUDP" type="Library">
+    <Project frameworkVersion="v3_5" name="OpenSim.Region.ClientStack.LindenUDP" path="Source/OpenSim/Region/ClientStack/LindenUDP" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Xml"/>
@@ -680,12 +680,12 @@
       <Reference name="Aurora.Framework"/>
       <Reference name="OpenSim.Region.Framework"/>
       
-      <Reference name="C5"  path="../../../../Distribution/"/>
-      <Reference name="Nini"  path="../../../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../../Distribution/"/>
-      <Reference name="XMLRPC" path="../../../../Distribution/"/>
+      <Reference name="C5"  />
+      <Reference name="Nini"  />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
+      <Reference name="XMLRPC" />
 
       <Files>
         <Match pattern="*.cs" recurse="false"/>
@@ -693,39 +693,39 @@
     </Project>
 	  
     <!-- Aurora app -->
-    <Project frameworkVersion="v3_5" name="Aurora" path="Sources/Aurora/Application" type="Exe">
+    <Project frameworkVersion="v3_5" name="Aurora" path="Source/Aurora/Application" type="Exe">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
 
       <Reference name="Aurora.Simulation.Base"/>
@@ -736,87 +736,87 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Server" path="Sources/Aurora/Server" type="Exe">
+    <Project frameworkVersion="v3_5" name="Aurora.Server" path="Source/Aurora/Server" type="Exe">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
 
       <Reference name="Aurora.Simulation.Base"/>
       <Reference name="Aurora.Framework"/>
 
-      <Reference name="Nini" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../Distribution/"/>
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Simulation.Base" path="Sources/Aurora/Simulation/Base" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.Simulation.Base" path="Source/Aurora/Simulation/Base" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
 	  <Reference name="System.Core"/>
       <Reference name="System.Web"/>
@@ -824,51 +824,51 @@
 
       <Reference name="Aurora.Framework"/>
       
-      <Reference name="log4net" path="../../../Distribution/"/>
-      <Reference name="Nini" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
-      <Reference name="XMLRPC" path="../../../Distribution/"/>
+      <Reference name="log4net" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
+      <Reference name="XMLRPC" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.CoreApplicationPlugins" path="Sources/Aurora/CoreApplicationPlugins" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.CoreApplicationPlugins" path="Source/Aurora/CoreApplicationPlugins" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
 	  <Reference name="System.Core"/>
       <Reference name="System.Drawing"/>
@@ -882,50 +882,50 @@
       <Reference name="Aurora.Framework"/>
       <Reference name="OpenSim.Region.Framework"/>
 
-      <Reference name="Nini" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../Distribution/"/>
-      <Reference name="XMLRPC" path="../../Distribution/"/>
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
+      <Reference name="XMLRPC" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
     
-    <Project frameworkVersion="v3_5" name="Aurora.Modules" path="Sources/Aurora/Modules" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.Modules" path="Source/Aurora/Modules" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="Microsoft.VisualBasic"/>
       <Reference name="System"/>
       <Reference name="System.Core"/>
@@ -942,56 +942,56 @@
       <Reference name="OpenSim.Region.Framework"/>
       <Reference name="OpenSim.Services"/>
       
-      <Reference name="C5" path="../../Distribution/"/>
-	  <Reference name="CSJ2K" path="../../Distribution/"/>
-      <Reference name="DotNetOpenMail" path="../../Distribution/"/>
-      <Reference name="GlynnTucker.Cache" path="../../Distribution/"/>
-      <Reference name="GoogleTranslateAPI" path="../../Distribution/"/>
-      <Reference name="Nini" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../Distribution/"/>
-      <Reference name="Warp3D" path="../../Distribution/" localCopy="true"/>
-      <Reference name="XMLRPC" path="../../Distribution/"/>
-      <Reference name="zlib.net" path="../../Distribution/"/>
+      <Reference name="C5" />
+	  <Reference name="CSJ2K" />
+      <Reference name="DotNetOpenMail" />
+      <Reference name="GlynnTucker.Cache" />
+      <Reference name="GoogleTranslateAPI" />
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
+      <Reference name="Warp3D" localCopy="true"/>
+      <Reference name="XMLRPC" />
+      <Reference name="zlib.net" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 
-	<Project frameworkVersion="v3_5" name="Aurora.Physics.ModifiedBulletSim" path="Sources/Aurora/Physics/ModifiedBulletSim/" type="Library">
+	<Project frameworkVersion="v3_5" name="Aurora.Physics.ModifiedBulletSim" path="Source/Aurora/Physics/ModifiedBulletSim/" type="Library">
 	  <Configuration name="Debug" platform="x86">
 		  <Options>
-			  <OutputPath>../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Release" platform="x86">
 		  <Options>
-			  <OutputPath>../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Debug" platform="x64">
 		  <Options>
-			  <OutputPath>../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Release" platform="x64">
 		  <Options>
-			  <OutputPath>../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Debug" platform="AnyCPU">
 		  <Options>
-			  <OutputPath>../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Release" platform="AnyCPU">
 		  <Options>
-			  <OutputPath>../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
-		  <ReferencePath>../../../Distribution/</ReferencePath>
+		  <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
 	  <Reference name="System"/>
 	  <Reference name="System.Core"/>
 	  <Reference name="System.Data"/>
@@ -1001,53 +1001,53 @@
 	  <Reference name="Aurora.DataManager"/>
 	  <Reference name="Aurora.Framework"/>
 	  <Reference name="OpenSim.Region.Framework"/>
-	  <Reference name="Nini" path="../../../Distribution/"/>
-	  <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
+	  <Reference name="Nini" />
+	  <Reference name="OpenMetaverseTypes" />
 		  <Files>
 		  <Match pattern="*.cs" recurse="true"/>
 	  </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Physics.AuroraOpenDynamicsEngine" path="Sources/Aurora/Physics/AuroraOpenDynamicsEngine" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.Physics.AuroraOpenDynamicsEngine" path="Source/Aurora/Physics/AuroraOpenDynamicsEngine" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Physics/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
 
       <Reference name="Aurora.Framework"/>
       
-      <Reference name="Nini" path="../../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../../Distribution/"/>
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverseTypes" />
 
       <Files>
         <Match pattern="*.cs" recurse="true">
@@ -1056,39 +1056,39 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.ScriptEngine.AuroraDotNetEngine" path="Sources/Aurora/AuroraDotNetEngine" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.ScriptEngine.AuroraDotNetEngine" path="Source/Aurora/AuroraDotNetEngine" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Data"/>
@@ -1101,51 +1101,51 @@
       <Reference name="Aurora.Framework"/>
       <Reference name="OpenSim.Region.Framework" />
       
-      <Reference name="Nini" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../Distribution/"/>
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverseTypes" />
+      <Reference name="OpenMetaverse.StructuredData" />
       <Reference name="SmartThreadPool"/>
-      <Reference name="Tools" path="../../Distribution/"/>
+      <Reference name="Tools" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.BotManager" path="Sources/Aurora/BotManager" type="Library">
+    <Project frameworkVersion="v3_5" name="Aurora.BotManager" path="Source/Aurora/BotManager" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../Distribution/</ReferencePath>
+      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Core"/>
       <Reference name="System.Data"/>
@@ -1157,50 +1157,50 @@
       <Reference name="Aurora.Framework"/>
       <Reference name="OpenSim.Region.Framework"/>
       
-      <Reference name="Nini" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse" path="../../Distribution/"/>
-      <Reference name="OpenMetaverseTypes" path="../../Distribution/"/>
-      <Reference name="OpenMetaverse.StructuredData" path="../../Distribution/"/>
-      <Reference name="Tools" path="../../Distribution/"/>
+      <Reference name="Nini" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverseTypes" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="Tools" />
 
       <Files>
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 	
-	<Project frameworkVersion="v3_5" name="SmartThreadPool" path="Sources/OpenSim/Tools/SmartThreadPool" type="Library">
+	<Project frameworkVersion="v3_5" name="SmartThreadPool" path="Source/OpenSim/Tools/SmartThreadPool" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Data"/>
 	  <Reference name="System.Core"/>
@@ -1212,39 +1212,39 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Configurator" path="Sources/Aurora/Modules/Configurator" type="Exe">
+    <Project frameworkVersion="v3_5" name="Aurora.Configurator" path="Source/Aurora/Modules/Configurator" type="Exe">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/</OutputPath>
         </Options>
       </Configuration>
 
-      <ReferencePath>../../../Distribution/</ReferencePath>
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
       <Reference name="System"/>
       <Reference name="System.Net"/>
 	  
