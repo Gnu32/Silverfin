@@ -77,3 +77,4 @@ TODO.txt
 #Keepers
 !Libraries/*.dll
 !Libraries/AlternativeODE/*.dll
+Distribution/Libraries/ode.dll

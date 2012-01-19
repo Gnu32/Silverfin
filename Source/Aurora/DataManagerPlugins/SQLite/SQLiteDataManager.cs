@@ -54,10 +54,11 @@ namespace Aurora.DataManager.SQLite
                 if (!m_copiedFile)
                 {
                     m_copiedFile = true;
-                    if (System.IO.File.Exists("System.Data.SQLite.dll"))
-                        System.IO.File.Delete("System.Data.SQLite.dll");
-                    string fileName = System.IntPtr.Size == 4 ? "System.Data.SQLitex86.dll" : "System.Data.SQLitex64.dll";
-                    System.IO.File.Copy(fileName, "System.Data.SQLite.dll", true);
+                    string dllSqlite = Constants.PathModules + "/System.Data.SQLite.dll";
+                    if (System.IO.File.Exists(dllSqlite))
+                        System.IO.File.Delete(dllSqlite);
+                    string fileName = System.IntPtr.Size == 4 ? "/System.Data.SQLitex86.dll" : "/System.Data.SQLitex64.dll";
+                    System.IO.File.Copy(Constants.PathModules + fileName, dllSqlite, true);
                 }
             }
             catch

@@ -15,16 +15,16 @@
     ;PIDFile = /tmp/my.pid
 
     ;; Directory to load module .ini files from
-    IniDirectory = "Configuration/Modules"
+    IniDirectory = "Config/Modules"
 
     ;; Disables all WinForm based popups and uses the console whenever possible
     NoGUI = false
 
     ;; Commands to be run on startup are in the given file
-    startup_console_commands_file = startup_commands.txt
+    startup_console_commands_file = "Resources/Commands.Startup.txt"
 
     ;; Commands to be run on shutdown are in the given file
-    shutdown_console_commands_file = shutdown_commands.txt
+    shutdown_console_commands_file = "Resources/Commands.Shutdown.txt"
 
     ;; To run a script every X minutes, set the script filename here
     ;timer_Script = filename
@@ -107,4 +107,4 @@
 ;; Please do NOT edit below this line unless you know what you are doing with it!
 
 [Aurora]
-    Include-Config = Configuration/Main.ini
+    Include-Config = Config/Main.ini

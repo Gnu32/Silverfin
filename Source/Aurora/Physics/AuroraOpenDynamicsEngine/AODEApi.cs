@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Security;
+using Aurora.Framework;
 
 namespace OdeAPI
 {
@@ -1832,10 +1833,11 @@ namespace OdeAPI
         {
             try
             {
-                if (System.IO.File.Exists("ode.dll"))
-                    System.IO.File.Delete("ode.dll");
-                string fileName = System.IntPtr.Size == 4 ? "odex86.dll" : "odex64.dll";
-                System.IO.File.Copy(fileName, "ode.dll");
+                string dllODE = Constants.PathModules + "/ode.dll";
+                if (System.IO.File.Exists(dllODE))
+                    System.IO.File.Delete(dllODE);
+                string fileName = System.IntPtr.Size == 4 ? "/odex86.dll" : "/odex64.dll";
+                System.IO.File.Copy(Constants.PathModules + fileName, dllODE);
             }
             catch (Exception ex)
             {
