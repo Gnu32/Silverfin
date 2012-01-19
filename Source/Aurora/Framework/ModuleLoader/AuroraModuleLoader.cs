@@ -64,7 +64,7 @@ namespace Aurora.Framework
         public static List<T> LoadModules<T>(string moduleDir)
         {
             if (moduleDir == "")
-                moduleDir = Util.BasePathCombine("");
+                moduleDir = Util.BasePathCombine(Constants.PathModules);
             List<T> modules = new List<T>();
             if (!firstLoad.Contains(moduleDir))
             {

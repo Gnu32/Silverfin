@@ -1833,7 +1833,8 @@ namespace OdeAPI
         {
             try
             {
-                string dllODE = Constants.PathModules + "/ode.dll";
+                // Gnu32: This needs to copy ODE to the root because.. well, fuckin' ode.
+                string dllODE = "ode.dll";
                 if (System.IO.File.Exists(dllODE))
                     System.IO.File.Delete(dllODE);
                 string fileName = System.IntPtr.Size == 4 ? "/odex86.dll" : "/odex64.dll";
