@@ -1212,7 +1212,7 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Configurator" icon="../../../Resources/Silverfin.Configurator.ico" path="Source/Aurora/Modules/Configurator" type="Exe">
+    <Project frameworkVersion="v3_5" name="Aurora.Configurator" icon="../../../../Resources/Silverfin.Configurator.ico" path="Source/Aurora/Modules/Configurator" type="Exe">
       <Configuration name="Debug" platform="x86">
         <Options>
           <OutputPath>../../../../Distribution/</OutputPath>
