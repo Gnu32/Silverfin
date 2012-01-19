@@ -91,3 +91,5 @@ compile.bat
 compilex64.vs2010.bat
 *.db-journal
 addon-modules/*/
+
+TODO.txt

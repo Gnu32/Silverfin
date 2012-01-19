@@ -95,32 +95,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.Framework" path="Source/Aurora/Framework" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -247,32 +247,32 @@
     <Project frameworkVersion="v3_5" name="OpenSim.Region.Framework" path="Source/OpenSim/Region/Framework" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -305,32 +305,32 @@
     <Project frameworkVersion="v3_5" name="OpenSim.Services" path="Source/OpenSim/Services" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -366,32 +366,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.DataManager" path="Source/Aurora/DataManager" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -417,32 +417,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.DataManager.MySQL" path="Source/Aurora/DataManagerPlugins/MySQL" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -473,32 +473,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.DataManager.MSSQL" path="Source/Aurora/DataManagerPlugins/MSSQL" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -528,32 +528,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.DataManager.SQLite" path="Source/Aurora/DataManagerPlugins/SQLite" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -585,32 +585,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.Services.DataService" path="Source/Aurora/Services/DataService" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -643,32 +643,32 @@
     <Project frameworkVersion="v3_5" name="OpenSim.Region.ClientStack.LindenUDP" path="Source/OpenSim/Region/ClientStack/LindenUDP" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -693,7 +693,7 @@
     </Project>
 	  
     <!-- Aurora app -->
-    <Project frameworkVersion="v3_5" name="Aurora" path="Source/Aurora/Application" type="Exe">
+    <Project frameworkVersion="v3_5" name="Aurora" icon="../../../Resources/Silverfin.ico" path="Source/Aurora/Application" type="Exe">
       <Configuration name="Debug" platform="x86">
         <Options>
           <OutputPath>../../../Distribution/</OutputPath>
@@ -736,7 +736,7 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Server" path="Source/Aurora/Server" type="Exe">
+    <Project frameworkVersion="v3_5" name="Aurora.Server" icon="../../../Resources/Silverfin.Server.ico" path="Source/Aurora/Server" type="Exe">
       <Configuration name="Debug" platform="x86">
         <Options>
           <OutputPath>../../../Distribution/</OutputPath>
@@ -787,32 +787,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.Simulation.Base" path="Source/Aurora/Simulation/Base" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -839,32 +839,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.CoreApplicationPlugins" path="Source/Aurora/CoreApplicationPlugins" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -896,32 +896,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.Modules" path="Source/Aurora/Modules" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -1059,32 +1059,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.ScriptEngine.AuroraDotNetEngine" path="Source/Aurora/AuroraDotNetEngine" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -1116,32 +1116,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.BotManager" path="Source/Aurora/BotManager" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
+          <OutputPath>../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -1171,32 +1171,32 @@
 	<Project frameworkVersion="v3_5" name="SmartThreadPool" path="Source/OpenSim/Tools/SmartThreadPool" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
         </Options>
       </Configuration>
 
@@ -1212,7 +1212,7 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Configurator" path="Source/Aurora/Modules/Configurator" type="Exe">
+    <Project frameworkVersion="v3_5" name="Aurora.Configurator" icon="../../../Resources/Silverfin.Configurator.ico" path="Source/Aurora/Modules/Configurator" type="Exe">
       <Configuration name="Debug" platform="x86">
         <Options>
           <OutputPath>../../../../Distribution/</OutputPath>
