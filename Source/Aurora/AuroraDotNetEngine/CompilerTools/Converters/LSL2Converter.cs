@@ -31,6 +31,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.CSharp;
 using System.Text.RegularExpressions;
+using Aurora.Framework;
 //using Microsoft.JScript;
 
 namespace Aurora.ScriptEngine.AuroraDotNetEngine.CompilerTools
@@ -183,8 +184,7 @@ state testing
             CompilerParameters parameters = new CompilerParameters { IncludeDebugInformation = true };
 
 
-            string rootPath =
-                System.IO.Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory);
+            string rootPath = AppDomain.CurrentDomain.BaseDirectory + Constants.PathModules;
 
             if (rootPath != null)
                 parameters.ReferencedAssemblies.Add(System.IO.Path.Combine(rootPath,

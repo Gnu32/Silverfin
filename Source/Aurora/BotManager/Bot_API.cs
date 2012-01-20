@@ -58,10 +58,11 @@ namespace Aurora.BotManager
         {
             get
             {
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                // Gnu32: BUGFIX, use escapedCodeBase
+                string codeBase = Assembly.GetExecutingAssembly().EscapedCodeBase;
                 UriBuilder uri = new UriBuilder(codeBase);
                 string path = Uri.UnescapeDataString(uri.Path);
-                return Path.GetFileName(path);
+                return Path.GetFullPath(path);
             }
         }
 
