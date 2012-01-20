@@ -40,5 +40,7 @@ namespace Aurora.Framework
         public const string PathConfigGrid = "Config";
         public const string PathConfigServer = "Config.Server";
 
+        public const string DatabaseMain = "Silverfin";
+
     }
 }

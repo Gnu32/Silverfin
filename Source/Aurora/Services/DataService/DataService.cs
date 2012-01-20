@@ -31,6 +31,7 @@ using System.Reflection;
 using Aurora.DataManager.MSSQL;
 using Aurora.DataManager.MySQL;
 using Aurora.DataManager.SQLite;
+using Aurora.DataManager.MongoDB;
 using Aurora.Framework;
 using Nini.Config;
 using OpenMetaverse;
@@ -88,6 +89,13 @@ namespace Aurora.Services.DataService
                 //Allow for fallback when AuroraData isn't set
             {
                 SQLiteLoader GenericData = new SQLiteLoader();
+
+                DataConnector = GenericData;
+            }
+            else if (StorageProvider == "MongoDB" || StorageProvider == "Aurora.DataManager.MongoDB.dll")
+                // Really? We're defining these here?
+            {
+                MongoDBLoader GenericData = new MongoDBLoader();
 
                 DataConnector = GenericData;
             }

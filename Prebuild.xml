@@ -581,6 +581,62 @@
 		<Match buildAction="EmbeddedResource" path="Legacy/Resources" pattern="*.migrations"/>
       </Files>
     </Project>
+	
+    <Project frameworkVersion="v3_5" name="Aurora.DataManager.MongoDB" path="Source/Aurora/DataManagerPlugins/MongoDB" type="Library">
+      <Configuration name="Debug" platform="x86">
+        <Options>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
+        </Options>
+      </Configuration>
+      <Configuration name="Release" platform="x86">
+        <Options>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
+        </Options>
+      </Configuration>
+      <Configuration name="Debug" platform="x64">
+        <Options>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
+        </Options>
+      </Configuration>
+      <Configuration name="Release" platform="x64">
+        <Options>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
+        </Options>
+      </Configuration>
+      <Configuration name="Debug" platform="AnyCPU">
+        <Options>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
+        </Options>
+      </Configuration>
+      <Configuration name="Release" platform="AnyCPU">
+        <Options>
+          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
+        </Options>
+      </Configuration>
+
+      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
+      <Reference name="System"/>
+      <Reference name="System.Core"/>
+      <Reference name="System.Data"/>
+      <Reference name="System.Xml"/>
+      
+      <Reference name="Aurora.DataManager"/>
+      <Reference name="Aurora.Framework"/>
+      <Reference name="OpenSim.Region.Framework"/>
+
+      <Reference name="C5" />
+      <Reference name="System.Data.MongoDB" />
+      <Reference name="Nini" />
+      <Reference name="log4net" />
+      <Reference name="OpenMetaverse" />
+      <Reference name="OpenMetaverse.StructuredData" />
+      <Reference name="OpenMetaverseTypes" />
+
+      <Files>
+        <Match pattern="*.cs" recurse="true"/>
+		<Match buildAction="EmbeddedResource" path="Legacy/Resources" pattern="*.migrations"/>
+      </Files>
+    </Project>
 
     <Project frameworkVersion="v3_5" name="Aurora.Services.DataService" path="Source/Aurora/Services/DataService" type="Library">
       <Configuration name="Debug" platform="x86">
@@ -626,6 +682,7 @@
       <Reference name="Aurora.DataManager.MySQL"/>
       <Reference name="Aurora.DataManager.MSSQL"/>
       <Reference name="Aurora.DataManager.SQLite"/>
+      <Reference name="Aurora.DataManager.MongoDB"/>
       <Reference name="Aurora.Simulation.Base"/>
       <Reference name="Aurora.Framework"/>
 

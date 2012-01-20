@@ -1,8 +1,12 @@
 [DataFile]
     ;; Select the Database System you wish to use, then edit the appropriate ini file to set connection strings accordingly
     ;;
+	
+	;; If you want to use MongoDB, select this file.
+    Include-MongoDB = Config/Data/MongoDB.ini
+	
     ;; If you want to use SQLite, select this file.
-    Include-SQLite = Config/Data/SQLite.ini
+    ;Include-SQLite = Config/Data/SQLite.ini
 
     ;; If you want to use MySQL, select this file.
     ;Include-MySQL = Config/Data/MySQL.ini

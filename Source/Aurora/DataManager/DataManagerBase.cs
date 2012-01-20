@@ -41,7 +41,7 @@ namespace Aurora.DataManager
         private const string COLUMN_VERSION = "version";
 
         #region IDataConnector Members
-
+        
         public abstract string Identifier { get; }
         public abstract void ConnectToDatabase(string connectionString, string migratorName, bool validateTables);
 
