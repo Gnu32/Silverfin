@@ -151,32 +151,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.Physics.BasicPhysicsPlugin" path="Source/Aurora/Physics/BasicPhysicsPlugin" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
 
@@ -196,32 +196,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.Physics.Meshing" path="Source/Aurora/Physics/Meshing" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
 
@@ -963,32 +963,32 @@
 	<Project frameworkVersion="v3_5" name="Aurora.Physics.ModifiedBulletSim" path="Source/Aurora/Physics/ModifiedBulletSim/" type="Library">
 	  <Configuration name="Debug" platform="x86">
 		  <Options>
-			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Release" platform="x86">
 		  <Options>
-			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Debug" platform="x64">
 		  <Options>
-			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Release" platform="x64">
 		  <Options>
-			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Debug" platform="AnyCPU">
 		  <Options>
-			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 	  <Configuration name="Release" platform="AnyCPU">
 		  <Options>
-			  <OutputPath>../../../../Distribution/Physics/</OutputPath>
+			  <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
 		  </Options>
 	  </Configuration>
 		  <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
@@ -1011,32 +1011,32 @@
     <Project frameworkVersion="v3_5" name="Aurora.Physics.AuroraOpenDynamicsEngine" path="Source/Aurora/Physics/AuroraOpenDynamicsEngine" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x86">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="x64">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Debug" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
       <Configuration name="Release" platform="AnyCPU">
         <Options>
-          <OutputPath>../../../../Distribution/Physics/</OutputPath>
+          <OutputPath>../../../../Distribution/Libraries/Physics/</OutputPath>
         </Options>
       </Configuration>
 

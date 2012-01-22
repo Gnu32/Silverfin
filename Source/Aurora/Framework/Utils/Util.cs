@@ -768,6 +768,7 @@ namespace Aurora.Framework
         {
             ProcessStartInfo p = new ProcessStartInfo();
             string pa = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Util)).CodeBase);
+            pa = Path.Combine(pa, Constants.PathModules);
             if (pa != null)
             {
                 p.FileName = Path.Combine(pa, "7za.exe");
@@ -782,6 +783,7 @@ namespace Aurora.Framework
         {
             ProcessStartInfo p = new ProcessStartInfo();
             string pa = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Util)).CodeBase);
+            pa = Path.Combine(pa, Constants.PathModules);
             if (pa != null)
             {
                 p.FileName = Path.Combine(pa, "7za.exe");
