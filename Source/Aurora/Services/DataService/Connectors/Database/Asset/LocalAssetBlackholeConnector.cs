@@ -571,9 +571,9 @@ namespace Aurora.Services.DataService.Connectors.Database.Asset
                 if (ignoreFlags)
                 {
                     // delete the asset
-                    m_Gd.Delete(tableName, "id = '" + id + "'");
+                    m_Gd.Delete(tableName, new[] {"id"}, new object[] { id });
                     // just for safe measure check here as well
-                    m_Gd.Delete("auroraassets_old", "id = '" + id + "'");
+                    m_Gd.Delete("auroraassets_old", new[] { "id" }, new object[] { id });
                 }
                 return ignoreFlags;
             }
@@ -953,7 +953,7 @@ namespace Aurora.Services.DataService.Connectors.Database.Asset
                                     asset1.ParentID = asset1.ID;
 
                                 if (StoreAsset(asset1))
-                                    m_Gd.Delete("assets", "id = '" + asset1.ID + "'");
+                                    m_Gd.Delete("assets", new[] { "id" }, new object[] { asset1.ID });
 
                                 try
                                 {

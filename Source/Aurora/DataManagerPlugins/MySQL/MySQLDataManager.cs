@@ -46,6 +46,11 @@ namespace Aurora.DataManager.MySQL
             get { return "MySQLData"; }
         }
 
+        public override bool NoSQL
+        {
+            get { return false; }
+        }
+
         public void CloseDatabase(MySqlConnection connection)
         {
             //Interlocked.Decrement (ref m_locked);

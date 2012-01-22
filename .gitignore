@@ -42,6 +42,7 @@ Compile.*.bat
 Distribution/Libraries/Aurora.*.dll
 Distribution/Libraries/OpenSim.*.dll
 Distribution/Libraries/SmartThreadPool.dll
+Distribution/Libraries/ode.dll
 
 # Distribution files
 Distribution/Debug/*.dll
@@ -77,4 +78,4 @@ TODO.txt
 #Keepers
 !Libraries/*.dll
 !Libraries/AlternativeODE/*.dll
-Distribution/Libraries/ode.dll
+!Source/Silverfin/MongoDB/MongoDBTestpad.csproj

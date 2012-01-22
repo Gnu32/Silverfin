@@ -45,6 +45,11 @@ namespace Aurora.DataManager.SQLite
 
         protected Dictionary<string, FieldInfo> m_Fields = new Dictionary<string, FieldInfo>();
 
+        public override bool NoSQL
+        {
+            get { return false; }
+        }
+
 //        private static bool m_spammedmessage = false;
         private static bool m_copiedFile = false;
         public SQLiteLoader()

@@ -45,6 +45,11 @@ namespace Aurora.DataManager.MSSQL
             get { return "MSSQLData"; }
         }
 
+        public override bool NoSQL
+        {
+            get { return false; }
+        }
+
         public SqlConnection GetLockedConnection()
         {
             if (m_connection == null)

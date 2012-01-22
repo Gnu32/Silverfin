@@ -41,7 +41,8 @@ namespace Aurora.DataManager
         private const string COLUMN_VERSION = "version";
 
         #region IDataConnector Members
-        
+
+        public abstract bool NoSQL { get; }
         public abstract string Identifier { get; }
         public abstract void ConnectToDatabase(string connectionString, string migratorName, bool validateTables);
 
@@ -57,6 +58,7 @@ namespace Aurora.DataManager
         public abstract bool InsertMultiple(string table, List<object[]> values);
         public abstract bool Insert(string table, string[] keys, object[] values);
         public abstract bool Delete(string table, string[] keys, object[] values);
+        [Obsolete("This is just awful...")]
         public abstract bool Delete(string table, string whereclause);
         public abstract bool DeleteByTime(string table, string key);
         public abstract bool Insert(string table, object[] values, string updateKey, object updateValue);

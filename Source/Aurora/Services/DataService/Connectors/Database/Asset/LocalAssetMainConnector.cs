@@ -235,7 +235,7 @@ namespace Aurora.Services.DataService.Connectors.Database.Asset
                         ignoreFlags = true;
                 }
                 if (ignoreFlags)
-                    m_Gd.Delete("assets", "id = '" + id + "'");
+                    m_Gd.Delete("assets", new[] { "id" }, new object[] { id });
             }
             catch (Exception e)
             {
