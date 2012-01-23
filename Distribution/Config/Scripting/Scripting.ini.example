@@ -1,5 +1,5 @@
 [ScriptEngines]
-    ;;
+
     ;; If you want to run AuroraDotNetEngine as your default engine, uncomment this
     Include-ADNE = Config/Scripting/AuroraDotNetEngine.ini
     ;;
@@ -14,7 +14,7 @@
 
     ;; What is reported as the X-Secondlife-Shard for llHTTPRequest.
     ;; Defaults to the Aurora
-    shard = Aurora
+    shard = Silverfin
 
     ;; What is reported as the User-Agent when using llHTTPRequest
     ;; Defaults to not sent if not set here. See the notes section in the wiki at http://wiki.secondlife.com/wiki/LlHTTPRequest for comments on adding

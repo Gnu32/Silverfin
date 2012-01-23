@@ -41,15 +41,15 @@
     ;; *  Internet
     ;; *  Everything
     ;; Default is Internet
-    AppDomainPermissions = "FullTrust"
+    AppDomainPermissions = FullTrust
 
     ;; Path to the script binaries (this must be the full path, not just from /bin!)
     ;; Default is commented out
-    ; PathToLoadScriptsFrom = ""
+    PathToLoadScriptsFrom = "Caches/ScriptEngines"
 
     ;; Time before the script engine will stop looking for script errors.
     ;; Default is 5 seconds.
-    ScriptErrorFindingTimeOut = 5;
+    ScriptErrorFindingTimeOut = 5
 
     ;; When script is compiled, a copy of the script source will be put in the ScriptEngine folder
     ;; Default is false.
@@ -132,7 +132,7 @@
     ;; This sets the APIs that are allowed.
     ;; Values:
     ;;   aa: Aurora functions
-    ;;   ossl: OSSL functions
+    ;;   os: OSSL functions
     ;;   mod: MOD Api functions
     ;;   ll: LSL functions
     ;;   ls: LightShare functions

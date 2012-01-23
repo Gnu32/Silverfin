@@ -23,11 +23,11 @@
 
     ;; Should we check for updates?
     ;; Default: true
-    Enabled = true
+    Enabled = false
 
     ;; Should we notify you when there is an update?
     ;; Default: true
-    NotifyOnNewRelease = true
+    NotifyOnNewRelease = false
 
     ;; Version that blocks updates until the update has past this.
     LatestRelease = 0.2
@@ -88,6 +88,7 @@
 [SceneLoader]
     ;; The 'standard' 1 thread per Scene world
     SceneLoader = true
+	
 	;; The new experimental Async-Sim work which uses async physics
 	AsyncSceneLoader = false
 
@@ -96,6 +97,7 @@
     RegionModulesControllerPlugin = RegionModulesControllerPlugin
     RemoteAdminPlugin = RemoteAdminPlugin
     SceneManager = SceneManager
+	
     ;; Aurora.Server uses these as well, so seperate them out
     StatsHandler = StatsHandler
     ServicesLoader = ServicesLoader

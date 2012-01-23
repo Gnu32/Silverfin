@@ -14,7 +14,7 @@ rem ## Default Visual Studio choice (2008, 2010)
 set vstudio=2010
 
 rem ## Default .NET Framework (3_5, 4_0 (Unsupported on VS2008))
-set framework=3_5
+set framework=4_0
 
 rem ## Default architecture (86 (for 32bit), 64)
 set bits=86
@@ -43,9 +43,6 @@ echo "%vstudio%" isn't a valid choice!
 goto vstudio
 
 :framework
-echo.
-echo Just to let you know, SQLite is severely buggy with 4_0.
-echo Only use 4_0 if you're using an alternative database engine.
 set /p framework="Choose your .NET framework (3_5, 4_0 (Unsupported on VS2008)) [%framework%]: "
 if %framework%==3_5 goto bits
 if %framework%==4_0 goto frameworkcheck

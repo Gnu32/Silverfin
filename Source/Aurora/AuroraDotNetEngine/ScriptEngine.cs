@@ -405,7 +405,7 @@ namespace Aurora.ScriptEngine.AuroraDotNetEngine
                 {
                 }
             }
-            string Dir = Path.Combine(Path.Combine(Environment.CurrentDirectory, ScriptEnginesPath), "default.lsl");
+            string Dir = Path.Combine(Path.Combine(Environment.CurrentDirectory, Constants.PathResources), "DefaultScript.lsl");
             if (File.Exists(Dir))
             {
                 string defaultScript = File.ReadAllText(Dir);

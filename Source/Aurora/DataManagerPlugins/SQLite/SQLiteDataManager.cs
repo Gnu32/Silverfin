@@ -42,10 +42,11 @@ namespace Aurora.DataManager.SQLite
     public class SQLiteLoader : DataManagerBase
     {
         private SQLiteConnection m_Connection;
+        public string m_DatabasePath;
 
         protected Dictionary<string, FieldInfo> m_Fields = new Dictionary<string, FieldInfo>();
 
-//        private static bool m_spammedmessage = false;
+//      private static bool m_spammedmessage = false;
         private static bool m_copiedFile = false;
         public SQLiteLoader()
         {
@@ -79,7 +80,7 @@ namespace Aurora.DataManager.SQLite
         {
             string[] s1 = connectionString.Split(new[] { "Data Source=", "," }, StringSplitOptions.RemoveEmptyEntries);
             if (Path.GetFileName(s1[0]) == s1[0]) //Only add this if we arn't an absolute path already
-                connectionString = connectionString.Replace("Data Source=", "Data Source=" + Util.BasePathCombine("") + "\\");
+                connectionString = connectionString.Replace("Data Source=", "Data Source=" + Util.BasePathCombine(m_DatabasePath) + "\\");
             m_Connection = new SQLiteConnection(connectionString);
             m_Connection.Open();
             var migrationManager = new MigrationManager(this, migratorName, validateTables);
@@ -1286,7 +1287,9 @@ namespace Aurora.DataManager.SQLite
 
         public override IGenericData Copy()
         {
-            return new SQLiteLoader();
+            var copy = new SQLiteLoader();
+            copy.m_DatabasePath = m_DatabasePath;
+            return copy;
         }
     }
 }

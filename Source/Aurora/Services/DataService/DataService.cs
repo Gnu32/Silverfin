@@ -89,6 +89,10 @@ namespace Aurora.Services.DataService
             {
                 SQLiteLoader GenericData = new SQLiteLoader();
 
+                // Setting to define directory to store databases in
+                if (m_config != null)
+                    GenericData.m_DatabasePath = m_config.GetString("DatabaseDirectory", "");
+
                 DataConnector = GenericData;
             }
 
