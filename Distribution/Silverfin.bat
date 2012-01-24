@@ -10,7 +10,7 @@ echo :.....::....::...:::.....:..:::::..:::::....::..
 echo ::::::::::::::::::::::::Major Rasputin 2012:::::
 echo.
 
-rem ## Default Course of Action (aurora,server,config,quit)
+rem ## Default Course of Action (aurora,server,config,wipe,quit)
 set choice=aurora
 
 rem ## Auto-restart on exit/crash (y,n)
@@ -28,11 +28,12 @@ echo You have the following choices:
 echo	- aurora: Launches Silverfin (Aurora) as standalone/region simulator
 echo	- server: Launches Silverfin (Aurora) as server for specific roles
 echo	- config: Launches the configurator to configure Silverfin
+echo	- wipe: Wipes cache, databases or logs
 echo	- quit: Quits
 echo.
 
 :action
-set /p choice="What would you like to do? (aurora, server, config, quit) [%choice%]: "
+set /p choice="What would you like to do? (aurora, server, config, wipe, quit) [%choice%]: "
 if %choice%==aurora (
 	set app="Aurora.exe"
 	goto launchcycle
@@ -45,13 +46,13 @@ if %choice%==config (
 	set app="Aurora.Configurator.exe"
 	goto launchcycle
 )
+if %choice%==wipe goto wipe
 if %choice%==quit goto eof
 if %choice%==q goto eof
 if %choice%==exit goto eof
 
 echo "%choice%" isn't a valid choice!
 goto action
-
 
 
 :launchcycle
@@ -61,5 +62,57 @@ echo Launching %app%...
 if %auto_pause%==y pause
 if %auto_restart%==y goto launchcycle
 
+:wipe
+set wchoice=back
+echo.
+echo You have the following choices:
+echo	- temp: Wipes logs and caches
+echo	- full: Wipes logs, caches and databases (!!!DESTRUCTIVE!!!)
+echo	- back: Goes back to main menu 
+echo.
+set /p wchoice="What would you like to wipe? (temp, full) [back]: "
+if %wchoice%==temp goto wipe_temp
+if %wchoice%==full goto wipe_full
+if %wchoice%==quit goto eof
+if %wchoice%==q goto eof
+if %wchoice%==exit goto eof
+goto action
+
+	:wipe_temp
+	set wipe=n
+	echo.
+	set /p wipe="Are you ABSOLUTELY SURE you want to wipe all caches and logs? (y,n) [n]"
+	if %wipe%==y (
+		rd /q /s Logs
+		rd /q /s Caches
+		echo Temporary files wiped.
+		goto action
+	)
+	goto wipe
+	
+	:wipe_full
+	set wipe=n
+	echo.
+	echo ################# W
+	echo ######## ######## A
+	echo #######/ \####### R   You are about to perform a full wipe.
+	echo ######/ ! \###### N   If your Silverfin installation is configured to
+	echo #####/ !!! \##### I   use SQLite, you WILL LOSE EVERYTHING.
+	echo ####/   !   \#### N   
+	echo ###/         \### G   You will lose your ASSETS, ACCOUNT INFORMATION,
+	echo ##/     !     \## !   REGION DATA, EVERYTHING YOU SAVED!
+	echo #/_____________\# !
+	echo ################# !
+	set /p wipe="Are you ABSOLUTELY SURE you want to nuke everything? (makeitso, n) [n]"
+	if %wipe%==makeitso (
+		rd /q /s Databases
+		rd /q /s Logs
+		rd /q /s Caches
+		echo The universe is new again. All data wiped.
+		goto action
+	)
+	goto wipe
+
 
 :eof
+pause

@@ -67,6 +67,7 @@ namespace Aurora.Modules.WorldMap
         private IConfigSource m_config;
         private Dictionary<UUID, Color> m_mapping;
         private IScene m_scene;
+        private string m_mapTileCachePath;
         private IMapTileTerrainRenderer terrainRenderer;
 
         #region IMapImageGenerator Members
@@ -528,14 +529,16 @@ namespace Aurora.Modules.WorldMap
 
         private void ReadCacheMap()
         {
-            if (!Directory.Exists("assetcache"))
-                Directory.CreateDirectory("assetcache");
-            if (!Directory.Exists(Path.Combine("assetcache", "mapTileTextureCache")))
-                Directory.CreateDirectory(Path.Combine("assetcache", "mapTileTextureCache"));
+            m_mapTileCachePath = Path.Combine(Constants.PathCaches, "mapTileTextureCache");
+
+            if (!Directory.Exists(Constants.PathCaches))
+                Directory.CreateDirectory(Constants.PathCaches);
+            if (!Directory.Exists(m_mapTileCachePath))
+                Directory.CreateDirectory(m_mapTileCachePath);
 
             FileStream stream =
                 new FileStream(
-                    Path.Combine(Path.Combine("assetcache", "mapTileTextureCache"),
+                    Path.Combine(m_mapTileCachePath,
                                  m_scene.RegionInfo.RegionName + ".tc"), FileMode.OpenOrCreate);
             StreamReader m_streamReader = new StreamReader(stream);
             string file = m_streamReader.ReadToEnd();
@@ -549,7 +552,7 @@ namespace Aurora.Modules.WorldMap
                     //Something went wrong, delete the file
                     try
                     {
-                        File.Delete(Path.Combine(Path.Combine("assetcache", "mapTileTextureCache"),
+                        File.Delete(Path.Combine(m_mapTileCachePath,
                                                  m_scene.RegionInfo.RegionName + ".tc"));
                     }
                     catch
@@ -582,7 +585,7 @@ namespace Aurora.Modules.WorldMap
             OSDMap map = SerializeCache();
             FileStream stream =
                 new FileStream(
-                    Path.Combine(Path.Combine("assetcache", "mapTileTextureCache"),
+                    Path.Combine(m_mapTileCachePath,
                                  m_scene.RegionInfo.RegionName + ".tc"), FileMode.Create);
             StreamWriter writer = new StreamWriter(stream);
             writer.WriteLine(OSDParser.SerializeJsonString(map));

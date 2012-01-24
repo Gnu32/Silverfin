@@ -10,7 +10,7 @@
     ConnectionString = "Data Source=OpenSim.db;version=3;UseUTF16Encoding=True"
 
 [IAvatarData]
-    ConnectionString = "Data Source=avatars.db;version=3;UseUTF16Encoding=True"
+    ConnectionString = "Data Source=Avatars.db;version=3;UseUTF16Encoding=True"
 
 [IAssetDataPlugin]
     ConnectionString = "Data Source=Asset.db;version=3"
@@ -23,13 +23,13 @@
     ConnectionString = "Data Source=OpenSim.db;version=3;UseUTF16Encoding=True"
 
 [AvatarService]
-    ConnectionString = "Data Source=avatars.db;version=3"
+    ConnectionString = "Data Source=Avatars.db;version=3"
 
 [IUserAccountData]
-    ConnectionString = "Data Source=userprofiles.db;version=3"
+    ConnectionString = "Data Source=Userprofiles.db;version=3"
 
 [FriendsService]
-    ConnectionString = "Data Source=friends.db;version=3"
+    ConnectionString = "Data Source=Friends.db;version=3"
 
 [IInventoryData]
-    ConnectionString = "Data Source=inventory.db;version=3;UseUTF16Encoding=True"
+    ConnectionString = "Data Source=Inventory.db;version=3;UseUTF16Encoding=True"

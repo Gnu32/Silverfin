@@ -79,10 +79,16 @@ namespace Aurora.DataManager.SQLite
         public override void ConnectToDatabase(string connectionString, string migratorName, bool validateTables)
         {
             string[] s1 = connectionString.Split(new[] { "Data Source=", "," }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (!Directory.Exists(Util.BasePathCombine(m_DatabasePath)))
+                Directory.CreateDirectory(Util.BasePathCombine(m_DatabasePath));
+
             if (Path.GetFileName(s1[0]) == s1[0]) //Only add this if we arn't an absolute path already
                 connectionString = connectionString.Replace("Data Source=", "Data Source=" + Util.BasePathCombine(m_DatabasePath) + "\\");
+
             m_Connection = new SQLiteConnection(connectionString);
             m_Connection.Open();
+
             var migrationManager = new MigrationManager(this, migratorName, validateTables);
             migrationManager.DetermineOperation();
             migrationManager.ExecuteOperation();

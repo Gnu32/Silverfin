@@ -47,7 +47,7 @@ namespace Aurora.Modules.ObjectCache
 
         protected bool m_Enabled = true;
 
-        private string m_filePath = "ObjectCache/";
+        private string m_filePath = Path.Combine(Constants.PathCaches,"ObjectCache");
         private IScene m_scene;
 
         #endregion

@@ -88,7 +88,7 @@ namespace Aurora.Framework
             // git log -n 1 --pretty="format:%h-%ci" >bin/.version
             // For the full git commit hash use %H instead of %h
             //
-            string gitCommitFileName = ".version";
+            string gitCommitFileName = Path.Combine(Constants.PathCaches, ".version");
 
             string pathToGitFile = Path.Combine(Environment.CurrentDirectory,
                                                 Path.Combine("..\\", Path.Combine(".git", "logs")));

@@ -51,6 +51,7 @@ namespace OpenSim.Services.Handlers.Map
         private bool m_enabled = false;
         private bool m_cacheEnabled = true;
         private float m_cacheExpires = 24;
+        private string m_cachePath;
 
         public void Initialize (IConfigSource config, IRegistryCore registry)
         {
@@ -76,10 +77,12 @@ namespace OpenSim.Services.Handlers.Map
 
         private void CreateCacheDirectories ()
         {
-            if (!Directory.Exists ("assetcache"))
-                Directory.CreateDirectory ("assetcache");
-            if(!Directory.Exists("assetcache/mapzoomlevels"))
-                Directory.CreateDirectory ("assetcache/mapzoomlevels");
+            m_cachePath = Path.Combine(Constants.PathCaches, "MapZoomLevels");
+
+            if (!Directory.Exists (Constants.PathCaches))
+                Directory.CreateDirectory(Constants.PathCaches);
+            if (!Directory.Exists(m_cachePath))
+                Directory.CreateDirectory(m_cachePath);
         }
 
         public void Start (IConfigSource config, IRegistryCore registry)
@@ -238,7 +241,7 @@ namespace OpenSim.Services.Handlers.Map
             if (!m_cacheEnabled)
                 return new byte[0];
 
-            string fullPath = Path.Combine ("assetcache", Path.Combine ("mapzoomlevels", name));
+            string fullPath = Path.Combine (m_cachePath, name);
             if (File.Exists (fullPath))
             {
                 //Make sure the time is ok
@@ -253,7 +256,7 @@ namespace OpenSim.Services.Handlers.Map
             if (!m_cacheEnabled)
                 return;
 
-            string fullPath = Path.Combine ("assetcache", Path.Combine ("mapzoomlevels", name));
+            string fullPath = Path.Combine (m_cachePath, name);
             File.WriteAllBytes (fullPath, data);
         }
     }

@@ -13,6 +13,7 @@ namespace Aurora.Simulation.Base
     public class BinMigratorService
     {
         private const int _currentBinVersion = 5;
+        private string m_PhysicsPath;
         public void MigrateBin()
         {
             int currentVersion = GetBinVersion();
@@ -57,22 +58,23 @@ namespace Aurora.Simulation.Base
 
         public void RunMigration1()
         {
-            if (File.Exists("Physics//OpenSim.Region.Physics.BasicPhysicsPlugin.dll"))
-                File.Delete("Physics//OpenSim.Region.Physics.BasicPhysicsPlugin.dll");
-            if (File.Exists("Physics//OpenSim.Region.Physics.Meshing.dll"))
-                File.Delete("Physics//OpenSim.Region.Physics.Meshing.dll");
-            if (File.Exists("OpenSim.Framework.dll"))
-                File.Delete("OpenSim.Framework.dll");
-            if (File.Exists("OpenSim.Region.CoreModules.dll"))
-                File.Delete("OpenSim.Region.CoreModules.dll");
-            //rsmythe: djphil, this line is for you!
-            if (File.Exists("Aurora.Protection.dll"))
-                File.Delete("Aurora.Protection.dll");
+            m_PhysicsPath = Path.Combine(Constants.PathModules, "Physics");
 
-            foreach(string path in Directory.GetDirectories("ScriptEngines//"))
-            {
-                Directory.Delete(path, true);
-            }
+            if (File.Exists(Path.Combine(m_PhysicsPath,"OpenSim.Region.Physics.BasicPhysicsPlugin.dll")))
+                File.Delete(Path.Combine(m_PhysicsPath,"OpenSim.Region.Physics.BasicPhysicsPlugin.dll"));
+            if (File.Exists(Path.Combine(m_PhysicsPath,"OpenSim.Region.Physics.Meshing.dll"))) 
+                File.Delete(Path.Combine(m_PhysicsPath,"OpenSim.Region.Physics.Meshing.dll"));
+            if (File.Exists(Path.Combine(Constants.PathModules,"OpenSim.Framework.dll")))
+                File.Delete(Path.Combine(Constants.PathModules,"OpenSim.Framework.dll"));
+            if (File.Exists(Path.Combine(Constants.PathModules,"OpenSim.Region.CoreModules.dll")))
+                File.Delete(Path.Combine(Constants.PathModules,"OpenSim.Region.CoreModules.dll"));
+            //rsmythe: djphil, this line is for you!
+            if (File.Exists(Path.Combine(Constants.PathModules,"Aurora.Protection.dll")))
+                File.Delete(Path.Combine(Constants.PathModules,"Aurora.Protection.dll"));
+
+            if ( Directory.Exists( Path.Combine(Constants.PathCaches, "ScriptEngines") ) )
+                foreach(string path in Directory.GetDirectories(Path.Combine(Constants.PathCaches, "ScriptEngines")))
+                    Directory.Delete(path, true);
         }
 
         public void RunMigration2()

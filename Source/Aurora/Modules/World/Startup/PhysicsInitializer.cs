@@ -26,6 +26,7 @@
  */
 
 using System;
+using System.IO;
 using Nini.Config;
 using Aurora.Framework;
 using OpenSim.Region.Framework.Interfaces;
@@ -42,10 +43,10 @@ namespace Aurora.Modules.Startup
             IConfig MeshingConfig = source.Configs["Meshing"];
             string engine = "";
             string meshEngine = "";
-            string Path = "Physics";
+            string path = Path.Combine(Constants.PathModules, "Physics");
             if (PhysConfig != null)
             {
-                Path = PhysConfig.GetString("PathToPhysicsAssemblies", Path);
+                path = PhysConfig.GetString("PathToPhysicsAssemblies", path);
                 engine = PhysConfig.GetString("DefaultPhysicsEngine", "AuroraOpenDynamicsEngine");
                 meshEngine = MeshingConfig.GetString("DefaultMeshingEngine", "Meshmerizer");
                 string regionName = scene.RegionInfo.RegionName.Trim().Replace(' ', '_');
@@ -65,7 +66,7 @@ namespace Aurora.Modules.Startup
                 meshEngine = "Meshmerizer";
             }
             PhysicsPluginManager physicsPluginManager = new PhysicsPluginManager();
-            physicsPluginManager.LoadPluginsFromAssemblies(Util.BasePathCombine(Path));
+            physicsPluginManager.LoadPluginsFromAssemblies(Util.BasePathCombine(path));
 
             PhysicsScene pScene = physicsPluginManager.GetPhysicsScene(engine, meshEngine, source, scene.RegionInfo,
                                                                        scene);
