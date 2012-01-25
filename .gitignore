@@ -79,3 +79,5 @@ TODO.txt
 !Libraries/*.dll
 !Libraries/AlternativeODE/*.dll
 Distribution/Libraries/ode.dll
+Aurora.sln.cache
+compile.*.bat

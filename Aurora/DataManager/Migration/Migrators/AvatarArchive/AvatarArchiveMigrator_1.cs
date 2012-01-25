@@ -26,48 +26,57 @@
  */
 
 using System;
-using System.Data;
-using System.Data.Common;
-using System.Reflection;
-using Aurora.DataManager;
+using System.Collections.Generic;
+using Aurora.Framework;
+using C5;
 
-namespace OpenSim.Data.MSSQL
+namespace Aurora.DataManager.Migration.Migrators
 {
-    public class MSSQLMigration : LegacyMigration
+    public class AvatarArchiveMigrator_1 : Migrator
     {
-        public MSSQLMigration(DbConnection conn, Assembly assem, string type) : base(conn, assem, type)
+        public AvatarArchiveMigrator_1()
         {
+            Version = new Version(0, 0, 1);
+            MigrationName = "AvatarArchive";
+
+            schema = new List<Rec<string, ColumnDefinition[], IndexDefinition[]>>();
+
+            AddSchema("avatararchives", ColDefs(
+                ColDef("Name", ColumnTypes.String50),
+                ColDef("Archive", ColumnTypes.Blob),
+                ColDef("Snapshot", ColumnTypes.Char36),
+                ColDef("IsPublic", ColumnTypes.Integer11)
+            ), IndexDefs(
+                IndexDef(new string[1] { "Name" }, IndexType.Primary),
+                IndexDef(new string[1] { "IsPublic" }, IndexType.Index)
+            ));
+
+            AddSchema("passwords", ColDefs(
+                ColDef("Method", ColumnTypes.String50),
+                ColDef("Password", ColumnTypes.String50)
+            ), IndexDefs(
+                IndexDef(new string[1]{ "Method" }, IndexType.Primary )
+            ));
         }
 
-        public MSSQLMigration(DbConnection conn, Assembly assem, string subtype, string type)
-            : base(conn, assem, subtype, type)
+        protected override void DoCreateDefaults(IDataConnector genericData)
         {
+            EnsureAllTablesInSchemaExist(genericData);
         }
 
-        protected override int FindVersion(DbConnection conn, string type)
+        protected override bool DoValidate(IDataConnector genericData)
         {
-            int version = 0;
-            using (DbCommand cmd = conn.CreateCommand())
-            {
-                try
-                {
-                    cmd.CommandText = "select top 1 version from migrations where name = '" + type +
-                                      "' order by version desc"; //Must be 
-                    using (IDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            version = Convert.ToInt32(reader["version"]);
-                        }
-                        reader.Close();
-                    }
-                }
-                catch
-                {
-                    // Something went wrong, so we're version 0
-                }
-            }
-            return version;
+            return TestThatAllTablesValidate(genericData);
+        }
+
+        protected override void DoMigrate(IDataConnector genericData)
+        {
+            DoCreateDefaults(genericData);
+        }
+
+        protected override void DoPrepareRestorePoint(IDataConnector genericData)
+        {
+            CopyAllTablesToTempVersions(genericData);
         }
     }
 }

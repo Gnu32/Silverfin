@@ -470,61 +470,6 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.DataManager.MSSQL" path="Source/Aurora/DataManagerPlugins/MSSQL" type="Library">
-      <Configuration name="Debug" platform="x86">
-        <Options>
-          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="x86">
-        <Options>
-          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Debug" platform="x64">
-        <Options>
-          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="x64">
-        <Options>
-          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Debug" platform="AnyCPU">
-        <Options>
-          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="AnyCPU">
-        <Options>
-          <OutputPath>../../../../Distribution/Libraries/</OutputPath>
-        </Options>
-      </Configuration>
-
-      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
-      <Reference name="System"/>
-      <Reference name="System.Core"/>
-      <Reference name="System.Data"/>
-	  <Reference name="System.Drawing"/>
-      <Reference name="System.Xml"/>
-      
-      <Reference name="Aurora.DataManager"/>
-      <Reference name="Aurora.Framework"/>
-	  <Reference name="OpenSim.Region.Framework"/>
-
-      <Reference name="C5" />
-      <Reference name="Nini" />
-      <Reference name="OpenMetaverse" />
-      <Reference name="OpenMetaverseTypes" />
-	  <Reference name="OpenMetaverse.StructuredData" />
-      
-      <Files>
-        <Match pattern="*.cs" recurse="true"/>
-		<Match buildAction="EmbeddedResource" path="Legacy/Resources" pattern="*.migrations"/>
-      </Files>
-    </Project>
-
     <Project frameworkVersion="v3_5" name="Aurora.DataManager.SQLite" path="Source/Aurora/DataManagerPlugins/SQLite" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
@@ -624,7 +569,6 @@
 
       <Reference name="Aurora.DataManager"/>
       <Reference name="Aurora.DataManager.MySQL"/>
-      <Reference name="Aurora.DataManager.MSSQL"/>
       <Reference name="Aurora.DataManager.SQLite"/>
       <Reference name="Aurora.Simulation.Base"/>
       <Reference name="Aurora.Framework"/>
