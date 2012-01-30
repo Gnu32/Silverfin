@@ -139,6 +139,7 @@
       <Reference name="OpenMetaverse" />
       <Reference name="OpenMetaverse.StructuredData" />
       <Reference name="OpenMetaverseTypes" />
+      <Reference name="protobuf-net.dll" />
       <Reference name="SmartThreadPool"/>
       <Reference name="XMLRPC" />
       
@@ -356,6 +357,7 @@
       <Reference name="OpenMetaverse" />
       <Reference name="OpenMetaverse.StructuredData" />
       <Reference name="OpenMetaverseTypes" />
+      <Reference name="protobuf-net.dll" />
       <Reference name="XMLRPC" />
 
       <Files>

@@ -82,6 +82,7 @@ echo Creating compile batch file for your convinence...
 if %framework%==3_5 set fpath=C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild
 if %framework%==4_0 set fpath=C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\msbuild
 if %bits%==64 set args=/p:Platform="x64"
+if %bits%==86 set args=/p:Platform="x86"
 set filename=Compile.VS%vstudio%.net%framework%.x%bits%.bat
 
 echo %fpath% %args% > %filename% /p:DefineConstants=ISWIN

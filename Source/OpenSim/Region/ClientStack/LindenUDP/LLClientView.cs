@@ -1658,11 +1658,13 @@ namespace OpenSim.Region.ClientStack.LindenUDP
             PlacesReply.TransactionData.TransactionID = transactionID;
             try
             {
-                IEventQueueService eq = Scene.RequestModuleInterface<IEventQueueService>();
+                OutPacket(PlacesReply, ThrottleOutPacketType.AvatarInfo);
+                //Disabled for now... it doesn't seem to work right...
+                /*IEventQueueService eq = Scene.RequestModuleInterface<IEventQueueService>();
                 if (eq != null)
                 {
                     eq.QueryReply(PlacesReply, AgentId, RegionTypes.ToArray(), Scene.RegionInfo.RegionHandle);
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -9522,33 +9524,49 @@ namespace OpenSim.Region.ClientStack.LindenUDP
             AssetLandmark lm;
             if (lmid != UUID.Zero)
             {
-                //AssetBase lma = m_assetCache.GetAsset(lmid, false);
-                AssetBase lma = m_assetService.Get(lmid.ToString());
+                m_assetService.Get(lmid.ToString(), null, (id, s, lma) =>
+                    {
+                        if (lma == null)
+                        {
+                            // Failed to find landmark
+                            TeleportCancelPacket tpCancel =
+                                (TeleportCancelPacket)PacketPool.Instance.GetPacket(PacketType.TeleportCancel);
+                            tpCancel.Info.SessionID = tpReq.Info.SessionID;
+                            tpCancel.Info.AgentID = tpReq.Info.AgentID;
+                            OutPacket(tpCancel, ThrottleOutPacketType.Asset);
+                        }
 
-                if (lma == null)
-                {
-                    // Failed to find landmark
-                    TeleportCancelPacket tpCancel =
-                        (TeleportCancelPacket) PacketPool.Instance.GetPacket(PacketType.TeleportCancel);
-                    tpCancel.Info.SessionID = tpReq.Info.SessionID;
-                    tpCancel.Info.AgentID = tpReq.Info.AgentID;
-                    OutPacket(tpCancel, ThrottleOutPacketType.Asset);
-                }
+                        try
+                        {
+                            lm = new AssetLandmark(lma);
+                        }
+                        catch (NullReferenceException)
+                        {
+                            // asset not found generates null ref inside the assetlandmark constructor.
+                            TeleportCancelPacket tpCancel =
+                                (TeleportCancelPacket)PacketPool.Instance.GetPacket(PacketType.TeleportCancel);
+                            tpCancel.Info.SessionID = tpReq.Info.SessionID;
+                            tpCancel.Info.AgentID = tpReq.Info.AgentID;
+                            OutPacket(tpCancel, ThrottleOutPacketType.Asset);
+                            return;
+                        }
+                        TeleportLandmarkRequest handlerTeleportLandmarkRequest = OnTeleportLandmarkRequest;
+                        if (handlerTeleportLandmarkRequest != null)
+                        {
+                            handlerTeleportLandmarkRequest(this, lm.RegionID, lm.Gatekeeper, lm.Position);
+                        }
+                        else
+                        {
+                            //no event handler so cancel request
 
-                try
-                {
-                    lm = new AssetLandmark(lma);
-                }
-                catch (NullReferenceException)
-                {
-                    // asset not found generates null ref inside the assetlandmark constructor.
-                    TeleportCancelPacket tpCancel =
-                        (TeleportCancelPacket) PacketPool.Instance.GetPacket(PacketType.TeleportCancel);
-                    tpCancel.Info.SessionID = tpReq.Info.SessionID;
-                    tpCancel.Info.AgentID = tpReq.Info.AgentID;
-                    OutPacket(tpCancel, ThrottleOutPacketType.Asset);
-                    return true;
-                }
+
+                            TeleportCancelPacket tpCancel =
+                                (TeleportCancelPacket)PacketPool.Instance.GetPacket(PacketType.TeleportCancel);
+                            tpCancel.Info.AgentID = tpReq.Info.AgentID;
+                            tpCancel.Info.SessionID = tpReq.Info.SessionID;
+                            OutPacket(tpCancel, ThrottleOutPacketType.Asset);
+                        }
+                    });
             }
             else
             {
@@ -9561,22 +9579,6 @@ namespace OpenSim.Region.ClientStack.LindenUDP
                 return true;
             }
 
-            TeleportLandmarkRequest handlerTeleportLandmarkRequest = OnTeleportLandmarkRequest;
-            if (handlerTeleportLandmarkRequest != null)
-            {
-                handlerTeleportLandmarkRequest(this, lm.RegionID, lm.Gatekeeper, lm.Position);
-            }
-            else
-            {
-                //no event handler so cancel request
-
-
-                TeleportCancelPacket tpCancel =
-                    (TeleportCancelPacket) PacketPool.Instance.GetPacket(PacketType.TeleportCancel);
-                tpCancel.Info.AgentID = tpReq.Info.AgentID;
-                tpCancel.Info.SessionID = tpReq.Info.SessionID;
-                OutPacket(tpCancel, ThrottleOutPacketType.Asset);
-            }
             return true;
         }
 
@@ -10442,8 +10444,9 @@ namespace OpenSim.Region.ClientStack.LindenUDP
                 case "refreshmapvisibility":
                     if (m_scene.Permissions.CanIssueEstateCommand(AgentId, false))
                     {
-                        IWorldMapModule mapModule = Scene.RequestModuleInterface<IWorldMapModule>();
-                        mapModule.CreateTerrainTexture();
+                        IMapImageGenerator mapModule = Scene.RequestModuleInterface<IMapImageGenerator>();
+                        if(mapModule != null)
+                            mapModule.CreateTerrainTexture();
                     }
                     return true;
 

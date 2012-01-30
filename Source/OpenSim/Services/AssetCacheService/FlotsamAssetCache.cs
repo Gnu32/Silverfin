@@ -42,6 +42,7 @@ using OpenMetaverse;
 using Aurora.Framework;
 using OpenSim.Region.Framework.Scenes;
 using OpenSim.Services.Interfaces;
+using ProtoBuf;
 
 namespace OpenSim.Services
 {
@@ -247,20 +248,18 @@ namespace OpenSim.Services
 
                 try
                 {
-                    lock (m_fileCacheLock)
+                    // If the file is already cached, don't cache it, just touch it so access time is updated
+                    if (File.Exists(filename))
                     {
-                        // If the file is already cached, don't cache it, just touch it so access time is updated
-                        if (File.Exists(filename))
+                        File.SetLastAccessTime(filename, DateTime.Now);
+                    }
+                    else
+                    {
+                        // Once we start writing, make sure we flag that we're writing
+                        // that object to the cache so that we don't try to write the 
+                        // same file multiple times.
+                        lock (m_CurrentlyWriting)
                         {
-                            File.SetLastAccessTime(filename, DateTime.Now);
-                        }
-                        else
-                        {
-                            // Once we start writing, make sure we flag that we're writing
-                            // that object to the cache so that we don't try to write the 
-                            // same file multiple times.
-                            lock (m_CurrentlyWriting)
-                            {
 #if WAIT_ON_INPROGRESS_REQUESTS
                             if (m_CurrentlyWriting.ContainsKey(filename))
                             {
@@ -272,20 +271,19 @@ namespace OpenSim.Services
                             }
 
 #else
-                                if (m_CurrentlyWriting.Contains(filename))
-                                {
-                                    return;
-                                }
-                                else
-                                {
-                                    m_CurrentlyWriting.Add(filename);
-                                }
-#endif
+                            if (m_CurrentlyWriting.Contains(filename))
+                            {
+                                return;
                             }
-
-                            Util.FireAndForget(
-                                delegate { WriteFileCache(filename, asset); });
+                            else
+                            {
+                                m_CurrentlyWriting.Add(filename);
+                            }
+#endif
                         }
+
+                        Util.FireAndForget(
+                            delegate { WriteFileCache(filename, asset); });
                     }
                 }
                 catch (Exception e)
@@ -308,33 +306,21 @@ namespace OpenSim.Services
             else
             {
                 string filename = GetFileName(id);
-                lock (m_fileCacheLock)
+                if (File.Exists(filename))
                 {
-                    if (File.Exists(filename))
+                    try
                     {
-                        try
-                        {
-                            string file = File.ReadAllText(filename);
-                            asset = new AssetBase();
-                            asset.Unpack(OpenMetaverse.StructuredData.OSDParser.DeserializeJson(file));
-                            UpdateMemoryCache(id, asset);
+                        asset = ExtractAsset(id, asset, filename);
+                    }
+                    catch (Exception e)
+                    {
+                        LogException(e);
 
-                            m_DiskHits++;
-                        }
-                        catch (SerializationException e)
-                        {
-                            LogException(e);
-
-                            // If there was a problem deserializing the asset, the asset may 
-                            // either be corrupted OR was serialized under an old format 
-                            // {different version of AssetBase} -- we should attempt to
-                            // delete it and re-cache
-                            File.Delete(filename);
-                        }
-                        catch (Exception e)
-                        {
-                            LogException(e);
-                        }
+                        // If there was a problem deserializing the asset, the asset may 
+                        // either be corrupted OR was serialized under an old format 
+                        // {different version of AssetBase} -- we should attempt to
+                        // delete it and re-cache
+                        File.Delete(filename);
                     }
                 }
 
@@ -384,24 +370,56 @@ namespace OpenSim.Services
             }
             IAssetMonitor monitor =
                 (IAssetMonitor)
-                m_simulationBase.ApplicationRegistry.RequestModuleInterface<IMonitorModule>().GetMonitor("",
-                                                                                                         MonitorModuleHelper
-                                                                                                             .
-                                                                                                             AssetMonitor);
+                m_simulationBase.ApplicationRegistry.RequestModuleInterface<IMonitorModule>().GetMonitor("", MonitorModuleHelper.AssetMonitor);
             if (monitor != null)
                 monitor.AddAsset(asset);
 
             return asset;
         }
 
-        public AssetBase GetCached(string id)
+        private AssetBase ExtractAsset(string id, AssetBase asset, string filename)
         {
-            return Get(id);
+            /*string file = File.ReadAllText(filename);
+            asset = new AssetBase();
+            asset.Unpack(OpenMetaverse.StructuredData.OSDParser.DeserializeJson(file));*/
+            try
+            {
+                Stream s = File.Open(filename, FileMode.Open);
+                asset = ProtoBuf.Serializer.Deserialize<AssetBase>(s);
+                s.Close();
+            }
+            catch
+            {
+            }
+            UpdateMemoryCache(id, asset);
+
+            m_DiskHits++;
+            return asset;
         }
 
-        public bool GetExists(string id)
+        private static void InsertAsset(string filename, AssetBase asset, string directory, string tempname)
         {
-            return Get(id) != null;
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            Stream s = File.Open(tempname, FileMode.OpenOrCreate);
+            ProtoBuf.Serializer.Serialize<AssetBase>(s, asset);
+            s.Close();
+            //File.WriteAllText(tempname, OpenMetaverse.StructuredData.OSDParser.SerializeJsonString(asset.ToOSD()));
+
+            // Now that it's written, rename it so that it can be found.
+            if (File.Exists(filename))
+                File.Delete(filename);
+            try
+            {
+                File.Move(tempname, filename);
+            }
+            catch
+            {
+                File.Delete(tempname);
+            }
         }
 
         public void Expire(string id)
@@ -575,24 +593,7 @@ namespace OpenSim.Services
                 {
                     lock (m_fileCacheLock)
                     {
-                        if (!Directory.Exists(directory))
-                        {
-                            Directory.CreateDirectory(directory);
-                        }
-
-                        File.WriteAllText(tempname, OpenMetaverse.StructuredData.OSDParser.SerializeJsonString(asset.ToOSD()));
-
-                        // Now that it's written, rename it so that it can be found.
-                        if (File.Exists(filename))
-                            File.Delete(filename);
-                        try
-                        {
-                            File.Move(tempname, filename);
-                        }
-                        catch
-                        {
-                            File.Delete(tempname);
-                        }
+                        InsertAsset(filename, asset, directory, tempname);
                     }
 
                     if (m_logLevel >= 2)

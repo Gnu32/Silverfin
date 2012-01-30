@@ -35,8 +35,10 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
@@ -1666,7 +1668,6 @@ namespace Aurora.Framework
             if (Util.IsInstanceOfGenericType(typeof(List<>), t))
             {
                 OSDArray array = new OSDArray();
-                var list = Util.MakeList(Activator.CreateInstance(genericArgs[0]));
                 System.Collections.IList collection = (System.Collections.IList)o;
                 foreach (object item in collection)
                 {
@@ -1677,8 +1678,6 @@ namespace Aurora.Framework
             else if (Util.IsInstanceOfGenericType(typeof(Dictionary<,>), t))
             {
                 OSDMap array = new OSDMap();
-                var list = Util.MakeDictionary(CreateInstance(genericArgs[0]),
-                    CreateInstance(genericArgs[1]));
                 System.Collections.IDictionary collection = (System.Collections.IDictionary)o;
                 foreach (System.Collections.DictionaryEntry item in collection)
                 {
@@ -1686,6 +1685,8 @@ namespace Aurora.Framework
                 }
                 return array;
             }
+            if (t.BaseType == typeof(Enum))
+                return OSD.FromString(o.ToString());
             return null;
         }
 
@@ -1706,8 +1707,13 @@ namespace Aurora.Framework
         {
             if (o.Type == OSDType.UUID || PossibleArrayType == typeof(UUID))
                 return o.AsUUID();
-            if (PossibleArrayType == typeof(string) || PossibleArrayType == typeof(OSDString))
+            if (PossibleArrayType == typeof(string) || PossibleArrayType == typeof(OSDString) || PossibleArrayType.BaseType == typeof(Enum))
+            {
+                if (PossibleArrayType.BaseType == typeof(Enum))
+                    return Enum.Parse(PossibleArrayType, o.AsString());
+
                 return o.AsString();
+            }
             if (o.Type == OSDType.Integer || PossibleArrayType == typeof(int))
                 return o.AsInteger();
             if (o.Type == OSDType.Binary || PossibleArrayType == typeof(byte[]))
@@ -2235,6 +2241,10 @@ namespace Aurora.Framework
         {
             if (iPAddress == null)
                 return clientIP.Address;
+            /*if(IsLanIP(clientIP.Address))
+            {
+                return clientIP.Address;
+            }*/
             if (iPAddress.Equals(clientIP.Address))
             {
                 if (useLocalhostLoopback)
@@ -2260,6 +2270,49 @@ namespace Aurora.Framework
                 }
             }
             return iPAddress;
+        }
+
+        public static bool IsLanIP(IPAddress address)
+        {
+            var interfaces = NetworkInterface.GetAllNetworkInterfaces();
+            foreach (var iface in interfaces)
+            {
+                var properties = iface.GetIPProperties();
+                foreach (var ifAddr in properties.UnicastAddresses)
+                {
+                    if (ifAddr.IPv4Mask != null &&
+                        ifAddr.Address.AddressFamily == AddressFamily.InterNetwork &&
+                        CheckMask(ifAddr.Address, ifAddr.IPv4Mask, address))
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        private static bool CheckMask(IPAddress address, IPAddress mask, IPAddress target)
+        {
+            if (mask == null)
+                return false;
+
+            var ba = address.GetAddressBytes();
+            var bm = mask.GetAddressBytes();
+            var bb = target.GetAddressBytes();
+
+            if (ba.Length != bm.Length || bm.Length != bb.Length)
+                return false;
+
+            for (var i = 0; i < ba.Length; i++)
+            {
+                int m = bm[i];
+
+                int a = ba[i] & m;
+                int b = bb[i] & m;
+
+                if (a != b)
+                    return false;
+            }
+
+            return true;
         }
 
         public static IPEndPoint ResolveAddressForClient(IPEndPoint iPAddress, IPEndPoint clientIP)
@@ -2521,7 +2574,141 @@ namespace Aurora.Framework
     {
         public static List<T> ConvertAll<T>(this OSDArray array, Converter<OSD, T> converter)
         {
-            return array.ToList().ConvertAll<T>(converter);
+            List<OSD> list = new List<OSD>();
+            foreach (OSD o in array)
+            {
+                list.Add(o);
+            }
+            return list.ConvertAll<T>(converter);
+        }
+
+        public static OSDArray ToOSDArray<T>(this List<T> array)
+        {
+            OSDArray list = new OSDArray();
+            foreach (object o in array)
+            {
+                OSD osd = Util.MakeOSD(o, o.GetType());
+                if(osd != null)
+                    list.Add(osd);
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// Comes from http://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=14593
+        /// </summary>
+        /// <param name="method"></param>
+        /// <param name="parameters"></param>
+        /// <param name="invokeClass"></param>
+        /// <param name="invokeParameters"></param>
+        /// <returns></returns>
+        public static object FastInvoke(this MethodInfo method, ParameterInfo[] parameters, object invokeClass, object[] invokeParameters)
+        {
+            DynamicMethod dynamicMethod = new DynamicMethod(string.Empty,
+                             typeof(object), new Type[] { typeof(object), 
+                     typeof(object[]) },
+                             method.DeclaringType.Module);
+            ILGenerator il = dynamicMethod.GetILGenerator();
+            Type[] paramTypes = new Type[parameters.Length];
+            for (int i = 0; i < paramTypes.Length; i++)
+            {
+                paramTypes[i] = parameters[i].ParameterType;
+            }
+            LocalBuilder[] locals = new LocalBuilder[paramTypes.Length];
+            for (int i = 0; i < paramTypes.Length; i++)
+            {
+                locals[i] = il.DeclareLocal(paramTypes[i]);
+            }
+            for (int i = 0; i < paramTypes.Length; i++)
+            {
+                il.Emit(OpCodes.Ldarg_1);
+                EmitFastInt(il, i);
+                il.Emit(OpCodes.Ldelem_Ref);
+                EmitCastToReference(il, paramTypes[i]);
+                il.Emit(OpCodes.Stloc, locals[i]);
+            }
+            il.Emit(OpCodes.Ldarg_0);
+            for (int i = 0; i < paramTypes.Length; i++)
+            {
+                il.Emit(OpCodes.Ldloc, locals[i]);
+            }
+            il.EmitCall(OpCodes.Call, method, null);
+            if (method.ReturnType == typeof(void))
+                il.Emit(OpCodes.Ldnull);
+            else
+                EmitBoxIfNeeded(il, method.ReturnType);
+            il.Emit(OpCodes.Ret);
+            return dynamicMethod.Invoke(null, new object[2] {invokeClass, invokeParameters });
+            /*FastInvokeHandler invoder =
+              (FastInvokeHandler)dynamicMethod.CreateDelegate(
+              typeof(FastInvokeHandler));
+            return invoder;*/
+        }
+
+        private static void EmitCastToReference(ILGenerator il, System.Type type)
+        {
+            if (type.IsValueType)
+            {
+                il.Emit(OpCodes.Unbox_Any, type);
+            }
+            else
+            {
+                il.Emit(OpCodes.Castclass, type);
+            }
+        }
+
+        private static void EmitBoxIfNeeded(ILGenerator il, System.Type type)
+        {
+            if (type.IsValueType)
+            {
+                il.Emit(OpCodes.Box, type);
+            }
+        }
+
+        private static void EmitFastInt(ILGenerator il, int value)
+        {
+            switch (value)
+            {
+                case -1:
+                    il.Emit(OpCodes.Ldc_I4_M1);
+                    return;
+                case 0:
+                    il.Emit(OpCodes.Ldc_I4_0);
+                    return;
+                case 1:
+                    il.Emit(OpCodes.Ldc_I4_1);
+                    return;
+                case 2:
+                    il.Emit(OpCodes.Ldc_I4_2);
+                    return;
+                case 3:
+                    il.Emit(OpCodes.Ldc_I4_3);
+                    return;
+                case 4:
+                    il.Emit(OpCodes.Ldc_I4_4);
+                    return;
+                case 5:
+                    il.Emit(OpCodes.Ldc_I4_5);
+                    return;
+                case 6:
+                    il.Emit(OpCodes.Ldc_I4_6);
+                    return;
+                case 7:
+                    il.Emit(OpCodes.Ldc_I4_7);
+                    return;
+                case 8:
+                    il.Emit(OpCodes.Ldc_I4_8);
+                    return;
+            }
+
+            if (value > -129 && value < 128)
+            {
+                il.Emit(OpCodes.Ldc_I4_S, (SByte)value);
+            }
+            else
+            {
+                il.Emit(OpCodes.Ldc_I4, value);
+            }
         }
     }
 }

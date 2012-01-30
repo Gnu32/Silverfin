@@ -362,7 +362,7 @@ textures 1
         /// <param name = "wearables"></param>
         private void CacheWearableData(IScenePresence sp, Primitive.TextureEntry textureEntry, WearableCache[] wearables)
         {
-            if (textureEntry == null || wearables.Length == 0)
+            /*if (textureEntry == null || wearables.Length == 0)
                 return;
 
             AvatarWearable cachedWearable = new AvatarWearable {MaxItems = 0};
@@ -381,7 +381,7 @@ textures 1
                 cachedWearable.Add(item.CacheID, textureEntry.FaceTextures[item.TextureIndex].TextureID);
             }
 #endif
-            m_scene.AvatarService.CacheWearableData(sp.UUID, cachedWearable);
+            m_scene.AvatarService.CacheWearableData(sp.UUID, cachedWearable);*/
         }
 
         /// <summary>
@@ -823,7 +823,7 @@ textures 1
             avatAppearance.GetAssetsFrom(appearance.Appearance);
 
             // This could take awhile since it needs to pull inventory
-            SetAppearanceAssets(sp.UUID, ref avatAppearance);
+            SetAppearanceAssets(sp.UUID, e.NowWearing, appearance.Appearance, ref avatAppearance);
 
             // could get fancier with the locks here, but in the spirit of "last write wins"
             // this should work correctly, also, we don't need to send the appearance here
@@ -858,7 +858,7 @@ textures 1
             //  (handled above) and that takes care of it
         }
 
-        private void SetAppearanceAssets(UUID userID, ref AvatarAppearance appearance)
+        private void SetAppearanceAssets(UUID userID, List<AvatarWearingArgs.Wearable> nowWearing, AvatarAppearance oldAppearance, ref AvatarAppearance appearance)
         {
             IInventoryService invService = m_scene.InventoryService;
 
@@ -881,6 +881,9 @@ textures 1
                                                     appearance.Wearables[i][j].AssetID);
                         continue;
                     }
+
+                    if (nowWearing[i].ItemID == oldAppearance.Wearables[i][j].ItemID)
+                        continue;//Don't relookup items that are the same and have already been found earlier
 
                     InventoryItemBase baseItem = new InventoryItemBase(appearance.Wearables[i][j].ItemID, userID);
                     baseItem = invService.GetItem(baseItem);

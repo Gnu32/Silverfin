@@ -53,21 +53,17 @@ namespace OpenSim.Services.Interfaces
         /// </summary>
         /// <param name="regionInfos"> </param>
         /// <param name="oldSessionID"></param>
-        /// <param name="SessionID"></param>
-        /// <param name="neighbors"></param>
         /// <returns></returns>
         /// <exception cref="System.Exception">Thrown if region registration failed</exception>
-        string RegisterRegion(GridRegion regionInfos, UUID oldSessionID, out UUID SessionID, out List<GridRegion> neighbors);
+        RegisterRegion RegisterRegion(GridRegion regionInfos, UUID oldSessionID);
 
         /// <summary>
         /// Deregister a region with the grid service.
         /// </summary>
-        /// <param name="regionhandle"></param>
-        /// <param name="regionID"></param>
-        /// <param name="SessionID"></param>
+        /// <param name="region"></param>
         /// <returns></returns>
         /// <exception cref="System.Exception">Thrown if region deregistration failed</exception>
-        bool DeregisterRegion(ulong regionhandle, UUID regionID, UUID SessionID);
+        bool DeregisterRegion(GridRegion region);
 
         /// <summary>
         /// Get a specific region by UUID in the given scope
@@ -202,6 +198,36 @@ namespace OpenSim.Services.Interfaces
         void Start (Nini.Config.IConfigSource config, IRegistryCore registry);
 
         void FinishedStartup ();
+    }
+
+    public class RegisterRegion : IDataTransferable
+    {
+        public string Error;
+        public List<GridRegion> Neighbors = new List<GridRegion>();
+        public UUID SessionID;
+        public int RegionFlags = 0;
+        public OSDMap Urls = new OSDMap();
+
+        public override OSDMap ToOSD()
+        {
+            OSDMap map = new OSDMap();
+            map["Error"] = Error;
+            map["Neighbors"] = new OSDArray(Neighbors.ConvertAll<OSD>((region) => region.ToOSD()));
+            map["SessionID"] = SessionID;
+            map["RegionFlags"] = RegionFlags;
+            map["Urls"] = Urls;
+            return map;
+        }
+
+        public override void FromOSD(OSDMap map)
+        {
+            Error = map["Error"];
+            OSDArray n = (OSDArray)map["Neighbors"];
+            Neighbors = n.ConvertAll<GridRegion>((osd) => { GridRegion r = new GridRegion(); r.FromOSD((OSDMap)osd); return r; });
+            SessionID = map["SessionID"];
+            RegionFlags = map["RegionFlags"];
+            Urls = (OSDMap)map["Urls"];
+        }
     }
 
     public class GridRegion : IDataTransferable
@@ -663,6 +689,12 @@ namespace OpenSim.Services.Interfaces
         /// <param name="defaultThreatLevel"></param>
         /// <returns></returns>
         bool CheckThreatLevel(string SessionID, string function, ThreatLevel defaultThreatLevel);
+
+        /// <summary>
+        /// Updates the time so that the region does not timeout
+        /// </summary>
+        /// <param name="p"></param>
+        void UpdateUrlsForClient(string SessionID);
     }
 
     /// <summary>
@@ -688,6 +720,11 @@ namespace OpenSim.Services.Interfaces
         /// Name of the Url
         /// </summary>
         string UrlName { get; }
+
+        /// <summary>
+        /// Give the region all of the ports assigned for this module
+        /// </summary>
+        bool DoMultiplePorts { get; }
 
         /// <summary>
         /// Get the Url for the given sessionID
