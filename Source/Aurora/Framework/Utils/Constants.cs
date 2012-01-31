@@ -40,5 +40,16 @@ namespace Aurora.Framework
         public const string PathConfigGrid = "Config";
         public const string PathConfigServer = "Config.Server";
         public const string PathCaches = "Caches";
+
+        public const string ConsoleSeperator = "===================:>";
+        public const string ConsoleLogo = @"
+       o 8                      ooooo  o       
+         8                      8              
+.oPYo. o8 8 o    o .oPYo. oPYo. o8oo   o8 odYo. 
+Yb..    8 8 Y.  .P 8oooo8 8  `'  8      8 8' `8 
+  'Yb.  8 8 `b..d' 8.     8      8      8 8   8 
+`YooP'  8 8  `YP'  `Yooo' 8      8      8 8   8 
+:.....::....::...:::.....:..:::::..:::::....::..
+:::::::::::::::::::: Based on Aurora & OpenSim :";
     }
 }

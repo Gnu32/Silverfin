@@ -81,3 +81,6 @@ TODO.txt
 Distribution/Libraries/ode.dll
 Aurora.sln.cache
 compile.*.bat
+*.db
+*.abackup
+Distribution/Caches/

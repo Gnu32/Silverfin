@@ -79,17 +79,6 @@ namespace Aurora.Framework
             string versionString = VERSION_NAME + " " + versionNumber + " " + flavour;
             versionString = versionString.PadRight(VERSIONINFO_VERSION_LENGTH);
 
-            // Add commit hash and date information if available
-            // The commit hash and date are stored in a file bin/.version
-            // This file can automatically created by a post
-            // commit script in the opensim git master repository or
-            // by issuing the follwoing command from the top level
-            // directory of the opensim repository
-            // git log -n 1 --pretty="format:%h-%ci" >bin/.version
-            // For the full git commit hash use %H instead of %h
-            //
-            string gitCommitFileName = Path.Combine(Constants.PathCaches, ".version");
-
             string pathToGitFile = Path.Combine(Environment.CurrentDirectory,
                                                 Path.Combine("..\\", Path.Combine(".git", "logs")));
 
@@ -104,18 +93,9 @@ namespace Aurora.Framework
                                                             StringSplitOptions.RemoveEmptyEntries);
                     versionString = "Aurora-" + splitLastLine[1].Substring(0, 6) /*First 6 digits of the commit hash*/+
                                     " " + splitLastLine[5] /*Time zone info*/;
-                    FileStream s = File.Open(gitCommitFileName, FileMode.Create);
-                    byte[] data = Encoding.UTF8.GetBytes(versionString);
-                    s.Write(data, 0, data.Length);
-                    s.Close();
                 }
             }
-            else if (File.Exists(gitCommitFileName))
-            {
-                StreamReader CommitFile = File.OpenText(gitCommitFileName);
-                versionString = CommitFile.ReadLine();
-                CommitFile.Close();
-            }
+
             return versionString;
         }
     }

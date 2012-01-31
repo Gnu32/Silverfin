@@ -115,7 +115,7 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                     }
                     else
                     {
-                        bool done = false, errored = false;
+                        bool done = false;
                         Thread t = new Thread(delegate()
                             {
                                 try
@@ -126,15 +126,13 @@ namespace OpenSim.ApplicationPlugins.RegionLoaderPlugin
                                 }
                                 catch
                                 {
-                                    errored = true;
+                                    throw new Exception();
                                 }
                             });
                         t.SetApartmentState(ApartmentState.STA);
                         t.Start();
                         while (!done)
-                            if (errored)
-                                throw new Exception();
-                            Thread.Sleep(100);
+                            Thread.Sleep(200);
                     }
                 }
                 catch

@@ -72,18 +72,6 @@ namespace Aurora.Services.DataService
 
                 DataConnector = GenericData;
             }
-            /*else if (StorageProvider == "MSSQL2008")
-            {
-                MSSQLDataLoader GenericData = new MSSQLDataLoader();
-
-                DataConnector = GenericData;
-            }
-            else if (StorageProvider == "MSSQL7")
-            {
-                MSSQLDataLoader GenericData = new MSSQLDataLoader();
-
-                DataConnector = GenericData;
-            }*/
             else if (StorageProvider == "SQLite" || StorageProvider == "Aurora.DataManager.SQLite.dll")
                 //Allow for fallback when AuroraData isn't set
             {

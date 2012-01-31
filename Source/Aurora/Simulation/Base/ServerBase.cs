@@ -26,12 +26,11 @@
  */
 
 using System;
-using Aurora.Simulation.Base;
 using Aurora.Framework;
 
-namespace Aurora.Server
+namespace Aurora.Simulation.Base
 {
-    public class AuroraBase : SimulationBase
+    public class ServerBase : SimulationBase
     {
         /// <summary>
         ///   Performs initialisation of the scene, such as loading configuration from disk.
@@ -49,7 +48,7 @@ namespace Aurora.Server
 
         public override ISimulationBase Copy()
         {
-            return new AuroraBase();
+            return new ServerBase();
         }
     }
 }

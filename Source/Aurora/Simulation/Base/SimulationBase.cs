@@ -188,10 +188,9 @@ namespace Aurora.Simulation.Base
         /// </summary>
         public virtual void Startup()
         {
-            MainConsole.Instance.Warn("====================================================================");
-            MainConsole.Instance.Warn(string.Format("====================== STARTING AURORA ({0}) ======================", 
-                (IntPtr.Size == 4 ? "x86" : "x64")));
-            MainConsole.Instance.Warn("====================================================================");
+            string[] logo = Constants.ConsoleLogo.Split(new string[] { "\n" }, StringSplitOptions.None);
+            foreach (string s in logo)
+                MainConsole.Instance.Warn(s);
             MainConsole.Instance.Warn("[AuroraStartup]: Version: " + Version + "\n");
 
             SetUpHTTPServer();

@@ -41,7 +41,7 @@ namespace Aurora.Framework
     /// </summary>
     public class ConfigurationLoader
     {
-        public string defaultIniFile = "Aurora.ini";
+        public string defaultIniFile;
 
         public string iniFilePath = "";
 

@@ -100,7 +100,7 @@ namespace Aurora.Simulation.Base
         private static bool _IsHandlingException; // Make sure we don't go recursive on ourself
 
         //could move our main function into OpenSimMain and kill this class
-        public static void BaseMain(string[] args, string defaultIniFile, ISimulationBase simBase)
+        public static void BaseMain(string[] args)
         {
             // First line, hook the appdomain to the crash reporter
             AppDomain.CurrentDomain.UnhandledException +=
@@ -109,20 +109,32 @@ namespace Aurora.Simulation.Base
             // Add the arguments supplied when running the application to the configuration
             ArgvConfigSource configSource = new ArgvConfigSource(args);
 
+            // Decide what mode we're running in
+            ISimulationBase simBase;
+            string defaultIniFile;
+            configSource.AddSwitch("Startup","runmode","mode");
+            switch (configSource.Configs["Startup"].GetString("runmode", "region"))
+            {
+                default:
+                case "aurora":
+                case "region":
+                    simBase = new SimulationBase();
+                    defaultIniFile = "Aurora.ini";
+                    break;
+                case "aurora.server":
+                case "server":
+                    simBase = new ServerBase();
+                    defaultIniFile = "Aurora.Server.ini";
+                    break;
+            }
+
             // Configure Log4Net
             configSource.AddSwitch("Startup", "logconfig");
             string logConfigFile = configSource.Configs["Startup"].GetString("logconfig", String.Empty);
             if (logConfigFile != String.Empty)
-            {
                 XmlConfigurator.Configure(new FileInfo(logConfigFile));
-                //MainConsole.Instance.InfoFormat("[OPENSIM MAIN]: configured log4net using \"{0}\" as configuration file",
-                //                 logConfigFile);
-            }
             else
-            {
                 XmlConfigurator.Configure();
-                //MainConsole.Instance.Info("[OPENSIM MAIN]: configured log4net using default OpenSim.exe.config");
-            }
 
             // Increase the number of IOCP threads available. Mono defaults to a tragically low number
             int workerThreads, iocpThreads;
@@ -262,8 +274,7 @@ namespace Aurora.Simulation.Base
         /// <returns></returns>
         private static IConfigSource Configuration(IConfigSource configSource, string defaultIniFile)
         {
-            if (defaultIniFile != "")
-                m_configLoader.defaultIniFile = defaultIniFile;
+            m_configLoader.defaultIniFile = defaultIniFile;
             return m_configLoader.LoadConfigSettings(configSource);
         }
 

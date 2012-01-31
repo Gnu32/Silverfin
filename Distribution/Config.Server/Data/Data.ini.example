@@ -2,10 +2,10 @@
     ;; Select the Database System you wish to use, then edit the appropriate ini file to set connection strings accordingly
     ;;
     ;; If you want to use SQLite, select this file.
-    Include-SQLite = AuroraServerConfiguration/Data/SQLite.ini
+    Include-SQLite = Config.Server/Data/SQLite.ini
     
     ;; If you want to use MySQL, select this file.
-    ;Include-MySQL = AuroraServerConfiguration/Data/MySQL.ini
+    ;Include-MySQL = Config.Server/Data/MySQL.ini
 
 [AuroraConnectors]
     ;; If you want to disable the verification and backup of tables before running migrations, set this to false

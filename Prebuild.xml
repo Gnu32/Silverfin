@@ -682,54 +682,6 @@
       </Files>
     </Project>
 
-    <Project frameworkVersion="v3_5" name="Aurora.Server" icon="../../../Resources/Silverfin.Server.ico" path="Source/Aurora/Server" type="Exe">
-      <Configuration name="Debug" platform="x86">
-        <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="x86">
-        <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Debug" platform="x64">
-        <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="x64">
-        <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Debug" platform="AnyCPU">
-        <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="AnyCPU">
-        <Options>
-          <OutputPath>../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-
-      <ReferencePath>../../../Distribution/Libraries/</ReferencePath>
-      <Reference name="System"/>
-
-      <Reference name="Aurora.Simulation.Base"/>
-      <Reference name="Aurora.Framework"/>
-
-      <Reference name="Nini" />
-      <Reference name="OpenMetaverse" />
-      <Reference name="OpenMetaverse.StructuredData" />
-      <Reference name="OpenMetaverseTypes" />
-
-      <Files>
-        <Match pattern="*.cs" recurse="true"/>
-      </Files>
-    </Project>
-
     <Project frameworkVersion="v3_5" name="Aurora.Simulation.Base" path="Source/Aurora/Simulation/Base" type="Library">
       <Configuration name="Debug" platform="x86">
         <Options>
@@ -1155,50 +1107,6 @@
       
       <Files>
         <Match pattern="*.cs" recurse="false"/>
-      </Files>
-    </Project>
-
-    <Project frameworkVersion="v3_5" name="Aurora.Configurator" icon="../../../../Resources/Silverfin.Configurator.ico" path="Source/Aurora/Modules/Configurator" type="Exe">
-      <Configuration name="Debug" platform="x86">
-        <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="x86">
-        <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Debug" platform="x64">
-        <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="x64">
-        <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Debug" platform="AnyCPU">
-        <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-      <Configuration name="Release" platform="AnyCPU">
-        <Options>
-          <OutputPath>../../../../Distribution/</OutputPath>
-        </Options>
-      </Configuration>
-
-      <ReferencePath>../../../../Distribution/Libraries/</ReferencePath>
-      <Reference name="System"/>
-      <Reference name="System.Net"/>
-	  
-      <Reference name="Aurora.Framework"/>
-     
-
-      <Files>
-        <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
 

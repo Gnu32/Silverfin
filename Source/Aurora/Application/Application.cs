@@ -36,7 +36,7 @@ namespace Aurora
     {
         public static void Main(string[] args)
         {
-            BaseApplication.BaseMain(args, "", new SimulationBase());
+            BaseApplication.BaseMain(args);
         }
     }
 }

@@ -482,24 +482,23 @@ namespace OpenSim.Services
 
         private void CleanupExpiredFiles(object source, ElapsedEventArgs e)
         {
-            if (m_logLevel >= 2)
-                MainConsole.Instance.DebugFormat("[FLOTSAM ASSET CACHE]: Checking for expired files older then {0}.",
-                                  m_FileExpiration.ToString());
-
-            // Purge all files last accessed prior to this point
-            DateTime purgeLine = DateTime.Now - m_FileExpiration;
-
-            // An optional deep scan at this point will ensure assets present in scenes,
-            // or referenced by objects in the scene, but not recently accessed 
-            // are not purged.
-            if (m_DeepScanBeforePurge)
+            if (Directory.Exists(m_CacheDirectory))
             {
-                CacheScenes();
-            }
+                if (m_logLevel >= 2)
+                    MainConsole.Instance.DebugFormat("[FLOTSAM ASSET CACHE]: Checking for expired files older then {0}.",
+                                      m_FileExpiration.ToString());
 
-            foreach (string dir in Directory.GetDirectories(m_CacheDirectory))
-            {
-                CleanExpiredFiles(dir, purgeLine);
+                // Purge all files last accessed prior to this point
+                DateTime purgeLine = DateTime.Now - m_FileExpiration;
+
+                // An optional deep scan at this point will ensure assets present in scenes,
+                // or referenced by objects in the scene, but not recently accessed 
+                // are not purged.
+                if (m_DeepScanBeforePurge)
+                    CacheScenes();
+
+                foreach (string dir in Directory.GetDirectories(m_CacheDirectory))
+                    CleanExpiredFiles(dir, purgeLine);
             }
         }
 

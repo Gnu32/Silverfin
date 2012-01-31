@@ -44,21 +44,21 @@ namespace Aurora.Framework
         // private readonly object m_syncRoot = new object();
 
         private static readonly ConsoleColor[] Colors = {
-                                                            // the dark colors don't seem to be visible on some black background terminals like putty :(
-                                                            //ConsoleColor.DarkBlue,
-                                                            //ConsoleColor.DarkGreen,
-                                                            //ConsoleColor.Gray, 
-                                                            //ConsoleColor.DarkGray,
-                                                            ConsoleColor.DarkCyan,
-                                                            ConsoleColor.DarkMagenta,
-                                                            ConsoleColor.DarkYellow,
-                                                            ConsoleColor.Green,
-                                                            ConsoleColor.Blue,
-                                                            ConsoleColor.Magenta,
-                                                            ConsoleColor.Red,
-                                                            ConsoleColor.Yellow,
-                                                            ConsoleColor.Cyan
-                                                        };
+            // the dark colors don't seem to be visible on some black background terminals like putty :(
+            //ConsoleColor.DarkBlue,
+            //ConsoleColor.DarkGreen,
+            //ConsoleColor.Gray, 
+            //ConsoleColor.DarkGray,
+            ConsoleColor.DarkCyan,
+            ConsoleColor.DarkMagenta,
+            ConsoleColor.DarkYellow,
+            ConsoleColor.Green,
+            ConsoleColor.Blue,
+            ConsoleColor.Magenta,
+            ConsoleColor.Red,
+            ConsoleColor.Yellow,
+            ConsoleColor.Cyan
+        };
 
         private readonly List<string> history = new List<string>();
 

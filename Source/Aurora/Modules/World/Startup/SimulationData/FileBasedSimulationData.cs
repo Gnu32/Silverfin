@@ -54,7 +54,6 @@ namespace Aurora.Modules.Startup.FileBasedSimulationData
 
         protected string m_fileName = "";
         protected List<ISceneEntity> m_groups = new List<ISceneEntity>();
-        protected bool m_hasShownFileBasedWarning;
         protected bool m_keepOldSave = true;
         protected string m_loadAppenedFileName = "";
         protected string m_loadDirectory = "";
@@ -823,27 +822,6 @@ namespace Aurora.Modules.Startup.FileBasedSimulationData
             if (simStore == null)
                 return false;
 
-            try
-            {
-                if (!m_hasShownFileBasedWarning)
-                {
-                    m_hasShownFileBasedWarning = true;
-                    IConfig startupConfig = m_scene.Config.Configs["Startup"];
-                    if (startupConfig == null || startupConfig.GetBoolean("NoGUI", false))
-                        DoNoGUIWarning();
-                    else
-                        MessageBox.Show(
-                            @"Your sim has been updated to use the FileBased Simulation Service.
-Your sim is now saved in a .abackup file in the bin/ directory with the same name as your region.
-More configuration options and info can be found in the Configuration/Data/FileBased.ini file.",
-                            "WARNING");
-                }
-            }
-            catch
-            {
-                DoNoGUIWarning();
-            }
-
             simStore.Initialise(connString);
 
             IParcelServiceConnector conn = DataManager.DataManager.RequestPlugin<IParcelServiceConnector>();
@@ -867,25 +845,6 @@ More configuration options and info can be found in the Configuration/Data/FileB
                 return true;
             }
             return false;
-        }
-
-        private void DoNoGUIWarning()
-        {
-            //Some people don't have winforms, which is fine
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("Your sim has been updated to use the FileBased Simulation Service.");
-            MainConsole.Instance.Error(
-                "Your sim is now saved in a .abackup file in the bin/ directory with the same name as your region.");
-            MainConsole.Instance.Error("More configuration options and info can be found in the Configuration/Data/FileBased.ini file.");
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("---------------------");
-            MainConsole.Instance.Error("---------------------");
         }
 
         private ITerrainChannel ReadFromData(byte[] data, IScene scene)
