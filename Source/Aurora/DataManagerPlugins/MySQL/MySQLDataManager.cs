@@ -174,11 +174,6 @@ namespace Aurora.DataManager.MySQL
             return Query(query, new Dictionary<string, object>());
         }
 
-        private static string preparedKey(string key)
-        {
-            return key.Replace("`", "").Replace("(", "_").Replace(")", "").Replace(" ", "_").Replace("-", "minus").Replace("+", "add").Replace("/", "divide").Replace("*", "multiply");
-        }
-
         public override List<string> Query(string[] wantedValue, string table, QueryFilter queryFilter, Dictionary<string, bool> sort, uint? start, uint? count)
         {
             string query = string.Format("SELECT {0} FROM {1}", string.Join(", ", wantedValue), table); ;

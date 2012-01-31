@@ -84,3 +84,4 @@ compile.*.bat
 *.db
 *.abackup
 Distribution/Caches/
+*.orig
