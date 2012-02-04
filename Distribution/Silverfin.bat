@@ -10,7 +10,7 @@ echo :.....::....::...:::.....:..:::::..:::::....::..
 echo ::::::::::::::::::::::::Major Rasputin 2012:::::
 echo.
 
-rem ## Default Course of Action (aurora,server,config,wipe,quit)
+rem ## Default Course of Action (aurora,server,wipe,quit)
 set choice=aurora
 
 rem ## Auto-restart on exit/crash (y,n)
@@ -19,6 +19,7 @@ set auto_restart=y
 rem ## Pause on crash/exit (y,n)
 set auto_pause=y
 
+:start
 echo Welcome to the Silverfin launcher.
 if %auto_restart%==y echo I am configured to automatically restart on exit.
 if %auto_pause%==y echo I am configured to automatically pause on exit.
@@ -27,23 +28,18 @@ echo.
 echo You have the following choices:
 echo	- aurora: Launches Silverfin (Aurora) as standalone/region simulator
 echo	- server: Launches Silverfin (Aurora) as server for specific roles
-echo	- config: Launches the configurator to configure Silverfin
 echo	- wipe: Wipes cache, databases or logs
 echo	- quit: Quits
 echo.
 
 :action
-set /p choice="What would you like to do? (aurora, server, config, wipe, quit) [%choice%]: "
+set /p choice="What would you like to do? (aurora, server, wipe, quit) [%choice%]: "
 if %choice%==aurora (
 	set app="Aurora.exe"
 	goto launchcycle
 )
 if %choice%==server (
 	set app="Aurora.exe /mode server"
-	goto launchcycle
-)
-if %choice%==config (
-	set app="Aurora.Configurator.exe"
 	goto launchcycle
 )
 if %choice%==wipe goto wipe

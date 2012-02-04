@@ -85,3 +85,4 @@ compile.*.bat
 *.abackup
 Distribution/Caches/
 *.orig
+Distribution/.gitignore
