@@ -530,11 +530,6 @@ namespace Aurora.DataManager.SQLite
             return InsertOrReplace(table, row, true);
         }
 
-        public override bool Replace(string table, Dictionary<string, object> row)
-        {
-            return InsertOrReplace(table, row, false);
-        }
-
         public override bool Insert(string table, object[] values, string updateKey, object updateValue)
         {
             var cmd = new SQLiteCommand();
@@ -569,6 +564,36 @@ namespace Aurora.DataManager.SQLite
             return true;
         }
 
+        public override bool InsertSelect(string tableA, string[] fieldsA, string tableB, string[] valuesB)
+        {
+            SQLiteCommand cmd = PrepReader(string.Format("INSERT INTO {0}{1} SELECT {2} FROM {3}",
+                tableA,
+                (fieldsA.Length > 0 ? " (" + string.Join(", ", fieldsA) + ")" : ""),
+                string.Join(", ", valuesB),
+                tableB
+            ));
+
+            try
+            {
+                ExecuteNonQuery(cmd);
+            }
+            catch (Exception e)
+            {
+                MainConsole.Instance.Error("[SQLiteLoader] INSERT .. SELECT (" + cmd.CommandText + "), " + e);
+            }
+            CloseReaderCommand(cmd);
+            return true;
+        }
+
+        #endregion
+
+        #region REPLACE INTO
+
+        public override bool Replace(string table, Dictionary<string, object> row)
+        {
+            return InsertOrReplace(table, row, false);
+        }
+
         #endregion
 
         #region Delete
@@ -583,9 +608,9 @@ namespace Aurora.DataManager.SQLite
 
         public override bool Delete(string table, QueryFilter queryFilter)
         {
-            Dictionary<string, object> ps;
+            Dictionary<string, object> ps = new Dictionary<string, object>();
             uint j = 0;
-            string query = "DELETE FROM " + table + " WHERE " + queryFilter.ToSQL(':', out ps, ref j);
+            string query = "DELETE FROM " + table + (queryFilter != null ? (" WHERE " + queryFilter.ToSQL(':', out ps, ref j)) : "");
 
             SQLiteCommand cmd = new SQLiteCommand(query);
             AddParams(ref cmd, ps);
@@ -603,18 +628,6 @@ namespace Aurora.DataManager.SQLite
         }
 
         #endregion
-
-        public override string FormatDateTimeString(int time)
-        {
-            if (time == 0)
-                return "datetime('now', 'localtime')";
-            return "datetime('now', 'localtime', '+" + time.ToString() + " minutes')";
-        }
-
-        public override string IsNull(string Field, string defaultValue)
-        {
-            return "IFNULL(" + Field + "," + defaultValue + ")";
-        }
 
         public override string ConCat(string[] toConcat)
         {
@@ -1009,10 +1022,12 @@ namespace Aurora.DataManager.SQLite
         {
             List<ColumnDefinition> defs = new List<ColumnDefinition>();
             IndexDefinition primary = null;
+            bool isFaux = false;
             foreach (KeyValuePair<string, IndexDefinition> index in ExtractIndicesFromTable(tableName))
             {
                 if (index.Value.Type == IndexType.Primary)
                 {
+                    isFaux = index.Key == "#fauxprimary#";
                     primary = index.Value;
                     break;
                 }
@@ -1031,7 +1046,14 @@ namespace Aurora.DataManager.SQLite
                     typeDef.isNull = uint.Parse(rdr["notnull"].ToString()) == 0;
                     typeDef.defaultValue = defaultValue.GetType() == typeof(System.DBNull) ? null : defaultValue.ToString();
 
-                    if (uint.Parse(rdr["pk"].ToString()) == 1 && primary == null && (typeDef.Type == ColumnType.Integer || typeDef.Type == ColumnType.TinyInt))
+                    if (
+                        uint.Parse(rdr["pk"].ToString()) == 1 &&
+                        primary != null &&
+                        isFaux == true &&
+                        primary.Fields.Length == 1 &&
+                        primary.Fields[0].ToLower() == name.ToString().ToLower() &&
+                        (typeDef.Type == ColumnType.Integer || typeDef.Type == ColumnType.TinyInt)
+                    )
                     {
                         typeDef.auto_increment = true;
                     }
@@ -1039,7 +1061,7 @@ namespace Aurora.DataManager.SQLite
                     defs.Add(new ColumnDefinition
                     {
                         Name = name.ToString(),
-                        Type = ConvertTypeToColumnType(type.ToString()),
+                        Type = typeDef,
                     });
                 }
                 rdr.Close();
@@ -1058,6 +1080,8 @@ namespace Aurora.DataManager.SQLite
                 Type = IndexType.Primary
             };
 
+            string autoIncrementField = null;
+
             List<string> fields = new List<string>();
 
             SQLiteCommand cmd = PrepReader(string.Format("PRAGMA table_info({0})", tableName));
@@ -1068,6 +1092,14 @@ namespace Aurora.DataManager.SQLite
                     if (uint.Parse(rdr["pk"].ToString()) > 0)
                     {
                         fields.Add(rdr["name"].ToString());
+                        if (autoIncrementField == null)
+                        {
+                            ColumnTypeDef typeDef = ConvertTypeToColumnType(rdr["type"].ToString());
+                            if (typeDef.Type == ColumnType.Integer || typeDef.Type == ColumnType.TinyInt)
+                            {
+                                autoIncrementField = rdr["name"].ToString();
+                            }
+                        }
                     }
                 }
                 rdr.Close();
@@ -1125,6 +1157,16 @@ namespace Aurora.DataManager.SQLite
                         checkForPrimary = false;
                     }
                 }
+            }
+
+            if (checkForPrimary == true && autoIncrementField != null)
+            {
+                primary = new IndexDefinition
+                {
+                    Fields = new string[1] { autoIncrementField },
+                    Type = IndexType.Primary
+                };
+                defs["#fauxprimary#"] = primary;
             }
 
             return defs;

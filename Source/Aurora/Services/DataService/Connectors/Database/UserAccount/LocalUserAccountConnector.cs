@@ -41,6 +41,8 @@ namespace Aurora.Services.DataService
         private IGenericData GD;
         private string m_realm = "useraccounts";
 
+        public string Realm { get { return "useraccounts"; } }
+
         #region IUserAccountData Members
 
         public void Initialize(IGenericData GenericData, IConfigSource source, IRegistryCore simBase,
@@ -168,7 +170,7 @@ namespace Aurora.Services.DataService
                 "UserLevel",
                 "UserFlags",
                 "UserTitle",
-                GD.IsNull("Name", GD.ConCat(new[] {"FirstName", "' '", "LastName"})) + " as Name "
+                "IFNULL(Name, " + GD.ConCat(new[] {"FirstName", "' '", "LastName"}) + ") as Name"
             }, m_realm, filter, null, null, null);
 
             ParseQuery(retVal, ref data);

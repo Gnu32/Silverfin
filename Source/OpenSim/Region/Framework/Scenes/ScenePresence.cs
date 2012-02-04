@@ -2206,9 +2206,9 @@ namespace OpenSim.Region.Framework.Scenes
                         {
                             m_lastSigInfiniteRegionPos = AbsolutePosition;
                             m_nearbyInfiniteRegions = Scene.GridService.GetRegionRange(UUID.Zero,
-                                (int)(TargetX - Scene.GridService.MaxRegionSize),
+                                (int)(TargetX - Scene.GridService.GetMaxRegionSize()),
                                 (int)(TargetX + 256),
-                                (int)(TargetY - Scene.GridService.MaxRegionSize),
+                                (int)(TargetY - Scene.GridService.GetMaxRegionSize()),
                                 (int)(TargetY + 256));
                         }
 #if (!ISWIN)
@@ -2685,9 +2685,12 @@ namespace OpenSim.Region.Framework.Scenes
         {
             m_pos = new Vector3(m_scene.RegionInfo.RegionSizeX / 2, m_scene.RegionInfo.RegionSizeY / 2,
                     128);
-            PhysicsActor.ForceSetPosition(m_pos);
-            PhysicsActor.ForceSetVelocity(Vector3.Zero);
-            RemoveFromPhysicalScene();
+            if (PhysicsActor != null)
+            {
+                PhysicsActor.ForceSetPosition(m_pos);
+                PhysicsActor.ForceSetVelocity(Vector3.Zero);
+                RemoveFromPhysicalScene();
+            }
             MainConsole.Instance.Error("[AVATAR]: NonFinite Avatar position detected... Reset Position, the client may be messed up now.");
 
             //Make them fly so that they don't just fall

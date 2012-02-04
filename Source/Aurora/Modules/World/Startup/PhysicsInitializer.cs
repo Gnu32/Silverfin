@@ -93,6 +93,10 @@ namespace Aurora.Modules.Startup
         {
         }
 
+        public void DeleteRegion(IScene scene)
+        {
+        }
+
         #endregion
     }
 }
