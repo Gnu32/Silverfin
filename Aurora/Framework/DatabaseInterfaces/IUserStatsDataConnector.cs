@@ -1,5 +1,5 @@
-﻿/*
- * Copyright (c) Contributors, http://aurora-sim.org/, http://opensimulator.org/
+/*
+ * Copyright (c) Contributors, http://aurora-sim.org/
  * See CONTRIBUTORS.TXT for a full list of copyright holders.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,45 +25,48 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using OpenMetaverse;
 using Aurora.Framework;
+using OpenMetaverse.Messages.Linden;
 
-namespace OpenSim.Services.Interfaces
+namespace Aurora.Framework
 {
-    public interface ISchedulerDataPlugin : IAuroraDataPlugin
+    public interface IUserStatsDataConnector : IAuroraDataPlugin
     {
-        string SchedulerSave(SchedulerItem I);
+        /// <summary>
+        ///   Add/Update a user's stats in the database
+        /// </summary>
+        /// <param name = "uid"></param>
+        void UpdateUserStats(ViewerStatsMessage uid, UUID agentID, UUID regionID);
 
-        void SchedulerRemove(string id);
+        /// <summary>
+        /// Get the count of sessions that match the given information
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <param name="whereCheck"></param>
+        /// <returns></returns>
+        int GetCount(string columnName, KeyValuePair<string, object> whereCheck);
 
-        bool SchedulerExist(string id);
+        /// <summary>
+        /// Get the information in the given column
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
+        List<string> Get(string columnName);
 
-        List<SchedulerItem> ToRun();
+        /// <summary>
+        /// Get a certain session from the database
+        /// </summary>
+        /// <param name="sessionID"></param>
+        /// <returns></returns>
+        ViewerStatsMessage GetBySession(UUID sessionID);
 
-        SchedulerItem SaveHistory(SchedulerItem I);
-
-        SchedulerItem SaveHistoryComplete(SchedulerItem I);
-
-        void SaveHistoryCompleteReciept(string historyID, string reciept);
-
-        void HistoryDeleteOld(SchedulerItem I);
-
-        SchedulerItem Get(string id);
-
-    }
-
-    public interface IScheduleService
-    {
-        bool Register(SchedulerItem I, OnGenericEventHandler handler);
-
-        bool Register(string fName, OnGenericEventHandler handler);
-
-        string Save(SchedulerItem I);
-
-        void Remove(string scdID);
-
-        bool Exist(string scdID);
-
-        SchedulerItem Get(string ID);
+        /// <summary>
+        /// Remove all sessions from the database
+        /// </summary>
+        void RemoveAllSessions();
     }
 }
