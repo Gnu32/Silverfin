@@ -39,7 +39,7 @@ if %choice%==aurora (
 	goto launchcycle
 )
 if %choice%==server (
-	set app="Aurora.exe /mode server"
+	set app="Aurora.exe /server"
 	goto launchcycle
 )
 if %choice%==wipe goto wipe

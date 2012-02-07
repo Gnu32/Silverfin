@@ -647,6 +647,7 @@ namespace Aurora.Framework
                                 y = -1;
                             }
                             string commandLine = cmdline.ToString();
+                            AddToHistory(commandLine);
 
                             if (isCommand)
                             {
@@ -668,13 +669,9 @@ namespace Aurora.Framework
                                             cmd[i] = "\"" + cmd[i] + "\"";
                                     }
                                 }
-                                AddToHistory(commandLine);
+
                                 return string.Empty;
                             }
-
-                            // If we're not echoing to screen (e.g. a password) then we probably don't want it in history
-                            if (echo && commandLine != "")
-                                AddToHistory(commandLine);
 
                             return cmdline.ToString();
                         default:

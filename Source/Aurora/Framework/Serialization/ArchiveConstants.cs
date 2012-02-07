@@ -202,7 +202,9 @@ namespace Aurora.Framework.Serialization
 
                 int i = iarDir.LastIndexOf(INVENTORY_NODE_NAME_COMPONENT_SEPARATOR);
 
-                plainDirs.Add(iarDir.Remove(i));
+                // BUGFIX: \0 entries randomly appearing. Investigate...
+                if (i != -1)
+                    plainDirs.Add(iarDir.Remove(i));
             }
 
             return string.Join("/", plainDirs.ToArray());

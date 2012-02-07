@@ -218,8 +218,13 @@ namespace Aurora.Modules
         {
             List<GridRegion> neighbors = m_localService.GetNeighbors(r);
             List<GridRegion> remoteNeighbors = (List<GridRegion>)DoRemoteForced(r);
-            UpdateGridRegionsForIWC(ref remoteNeighbors);
-            neighbors.AddRange(remoteNeighbors);
+
+            if (remoteNeighbors != null)
+            {
+                UpdateGridRegionsForIWC(ref remoteNeighbors);
+                neighbors.AddRange(remoteNeighbors);
+            }
+            
             return neighbors;
         }
 

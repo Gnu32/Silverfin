@@ -99,7 +99,7 @@ namespace Aurora.Modules.Archivers
         ///   A list of the inventory nodes loaded.  If folders were loaded then only the root folders are
         ///   returned
         /// </returns>
-        public HashSet<InventoryNodeBase> Execute(bool loadAll)
+        public HashSet<InventoryNodeBase> Execute(bool loadAll, bool skipAssets)
         {
             try
             {
@@ -122,6 +122,9 @@ namespace Aurora.Modules.Archivers
                     return loadedNodes;
                 }
 
+                if (skipAssets)
+                    MainConsole.Instance.Info("[INVENTORY ARCHIVER]: Skipping assets for IAR load...");
+
                 InventoryFolderBase rootDestinationFolder = folderCandidates[0];
                 archive = new TarArchiveReader(m_loadStream);
 
@@ -134,7 +137,7 @@ namespace Aurora.Modules.Archivers
 
                 while ((data = archive.ReadEntry(out filePath, out entryType)) != null)
                 {
-                    if (filePath.StartsWith(ArchiveConstants.ASSETS_PATH))
+                    if (filePath.StartsWith(ArchiveConstants.ASSETS_PATH) && !skipAssets)
                     {
                         if (LoadAsset(filePath, data))
                             successfulAssetRestores++;

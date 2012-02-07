@@ -109,23 +109,19 @@ namespace Aurora.Simulation.Base
             // Add the arguments supplied when running the application to the configuration
             ArgvConfigSource configSource = new ArgvConfigSource(args);
 
-            // Decide what mode we're running in
+            // Decide if we're in server mode
             ISimulationBase simBase;
             string defaultIniFile;
-            configSource.AddSwitch("Startup","runmode","mode");
-            switch (configSource.Configs["Startup"].GetString("runmode", "region"))
+            configSource.AddSwitch("Startup","server");
+            if (configSource.Configs["Startup"].Contains("server"))
             {
-                default:
-                case "aurora":
-                case "region":
-                    simBase = new SimulationBase();
-                    defaultIniFile = "Aurora.ini";
-                    break;
-                case "aurora.server":
-                case "server":
-                    simBase = new ServerBase();
-                    defaultIniFile = "Aurora.Server.ini";
-                    break;
+                simBase = new ServerBase();
+                defaultIniFile = "Aurora.Server.ini";
+            } 
+            else
+            {
+                simBase = new SimulationBase();
+                defaultIniFile = "Aurora.ini";
             }
 
             // Configure Log4Net

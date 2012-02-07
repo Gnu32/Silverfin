@@ -105,6 +105,9 @@ namespace Aurora.Modules
             List<FriendInfo> friends = m_localService.GetFriends(PrincipalID);
             if (friends == null || friends.Count == 0)
                 friends = (List<FriendInfo>)DoRemoteForced(PrincipalID);
+
+            // Fix: DoRemoteForced returns null if empty.
+            if (friends == null) friends = new List<FriendInfo>();
             return friends;
         }
 

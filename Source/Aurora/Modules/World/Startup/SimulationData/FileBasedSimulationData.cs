@@ -300,6 +300,9 @@ namespace Aurora.Modules.Startup.FileBasedSimulationData
                 m_timeBetweenBackupSaves = config.GetInt("TimeBetweenBackupSaves", m_timeBetweenBackupSaves);
             }
 
+            if (!Directory.Exists(m_saveDirectory))
+                Directory.CreateDirectory(m_saveDirectory);
+
             if (m_saveChanges && m_timeBetweenSaves != 0)
             {
                 m_saveTimer = new Timer(m_timeBetweenSaves*60*1000);
@@ -435,7 +438,7 @@ namespace Aurora.Modules.Startup.FileBasedSimulationData
             }
 
             MainConsole.Instance.Info("[FileBasedSimulationData]: Saving Backup for region " + m_scene.RegionInfo.RegionName);
-            string fileName = appendedFilePath + m_scene.RegionInfo.RegionName + m_saveAppenedFileName + ".abackup";
+            string fileName = Path.Combine(appendedFilePath, m_scene.RegionInfo.RegionName) + m_saveAppenedFileName + ".abackup";
             if (File.Exists(fileName))
             {
                 //Do new style saving here!

@@ -89,7 +89,7 @@ namespace Aurora.Services.DataService
             rows.Add("sim_fps", uid.SimulatorFPS);
             rows.Add("start_time", Util.ToUnixTime(uid.AgentStartTime));
             rows.Add("client_version", uid.AgentVersion);
-            rows.Add("s_cpu", uid.SystemCPU);
+            rows.Add("s_cpu", uid.SystemCPU.Substring(0,50));
             rows.Add("s_gpu", uid.SystemGPU);
             rows.Add("s_gpuclass", uid.SystemGPUClass);
             rows.Add("s_gpuvendor", uid.SystemGPUVendor);

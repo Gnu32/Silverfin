@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 using Aurora.Framework;
@@ -1831,14 +1832,14 @@ namespace OdeAPI
 
         public static void SetODEFile()
         {
+            // This weird setup is nessecary due to attributes' inability to accept variables as arguments
             try
             {
-                // Gnu32: This needs to copy ODE to the root because.. well, fuckin' ode.
-                string dllODE = "ode.dll";
-                if (System.IO.File.Exists(dllODE))
-                    System.IO.File.Delete(dllODE);
-                string fileName = System.IntPtr.Size == 4 ? "/odex86.dll" : "/odex64.dll";
-                System.IO.File.Copy(Constants.PathModules + fileName, dllODE);
+                string dllODE = Path.Combine(Constants.PathModulesPhysics, "ode.dll");
+                if (File.Exists(dllODE))
+                    File.Delete(dllODE);
+                string fileName = System.IntPtr.Size == 4 ? "odex86.dll" : "odex64.dll";
+                File.Copy(Path.Combine(Constants.PathModulesPhysics, fileName), dllODE);
             }
             catch (Exception ex)
             {

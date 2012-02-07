@@ -167,7 +167,7 @@ namespace Aurora.Modules.DefaultInventoryIARLoader
             try
             {
                 archread.ReplaceAssets = true;//Replace any old assets
-                List<InventoryNodeBase> nodes = new List<InventoryNodeBase>(archread.Execute(true));
+                List<InventoryNodeBase> nodes = new List<InventoryNodeBase>(archread.Execute(true, false));
                 if (nodes.Count == 0)
                     return;
                 InventoryFolderBase f = (InventoryFolderBase) nodes[0];

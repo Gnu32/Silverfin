@@ -79,7 +79,7 @@ namespace Aurora.Framework.Serialization
                     Uri uri = new Uri(path);
                     if (uri.Scheme == "file")
                     {
-                        return new FileStream(uri.AbsolutePath, FileMode.Open, FileAccess.Read);
+                        return new FileStream(uri.IsUnc ? uri.LocalPath : uri.AbsolutePath, FileMode.Open, FileAccess.Read);
                     }
                     else
                     {

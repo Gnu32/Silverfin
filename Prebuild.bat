@@ -19,7 +19,10 @@ set framework=4_0
 rem ## Default architecture (86 (for 32bit), 64, AnyCPU)
 set bits=AnyCPU
 
-rem ## Default "run compile batch" choice (y(es),n(o))
+rem ## Generate a compile batch file? (y ,n)
+set compilebatch=n
+
+rem ## Default "run compile batch" choice (y (requires compilebatch to be set to y), n)
 set compile_at_end=n
 
 echo I will now ask you three questions regarding your build.
@@ -27,12 +30,12 @@ echo However, if you wish to build for:
 echo		Visual Studio %vstudio%
 echo		.NET Framework %framework%
 echo		%bits%x Architecture
+if %compilebatch%==y echo With a compile batch file generated at the end
 if %compile_at_end%==y echo And you would like to compile straight after prebuild...
 echo.
 echo Simply tap [ENTER] four times.
 echo.
-echo Note that you can change these defaults by opening this
-echo batch file in a text editor.
+echo Note that you can change these defaults by opening this batch file in a text editor.
 echo.
 
 :vstudio
@@ -71,14 +74,16 @@ goto bits
 echo.
 echo.
 
+echo Calling Prebuild for target %vstudio% with framework %framework%...
+Tools\Prebuild.exe /target vs%vstudio% /targetframework v%framework%
+
 if exist Compile.*.bat (
 	echo Deleting previous compile batch file...
 	echo.
 	del Compile.*.bat
 )
 
-echo Calling Prebuild for target %vstudio% with framework %framework%...
-Tools\Prebuild.exe /target vs%vstudio% /targetframework v%framework%
+if %compilebatch%==n goto eof
 
 echo.
 echo Creating compile batch file for your convinence...
@@ -98,3 +103,5 @@ if %compile_at_end%==y (
 	%filename%
 	pause
 )
+
+:eof

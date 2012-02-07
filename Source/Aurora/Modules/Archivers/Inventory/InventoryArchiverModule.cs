@@ -125,7 +125,8 @@ namespace Aurora.Modules.Archivers
             if (userInfo != null)
             {
                 InventoryArchiveReadRequest request;
-                bool merge = (options.ContainsKey("merge") && (bool) options["merge"]);
+                bool merge = (options.ContainsKey("merge") && (bool)options["merge"]);
+                bool skipAssets = (options.ContainsKey("skip-assets") && (bool)options["skip-assets"]);
 
                 try
                 {
@@ -141,7 +142,7 @@ namespace Aurora.Modules.Archivers
                     return false;
                 }
 
-                request.Execute(false);
+                request.Execute(false, skipAssets);
 
                 return true;
             }
@@ -165,7 +166,7 @@ namespace Aurora.Modules.Archivers
                 {
                     MainConsole.Instance.Commands.AddCommand(
                         "load iar",
-                        "load iar <first> <last> <inventory path> <password> [<IAR path>]",
+                        "load iar [--skip-assets] [--merge] <first> <last> <inventory path> <password> [<IAR path>]",
                         //"load iar [--merge] <first> <last> <inventory path> <password> [<IAR path>]",
                         "Load user inventory archive (IAR). "
                         +
@@ -279,6 +280,7 @@ namespace Aurora.Modules.Archivers
             {
                 InventoryArchiveReadRequest request;
                 bool merge = (options.ContainsKey("merge") && (bool) options["merge"]);
+                bool skipAssets = (options.ContainsKey("skip-assets") && (bool)options["skip-assets"]);
 
                 try
                 {
@@ -294,7 +296,7 @@ namespace Aurora.Modules.Archivers
                     return false;
                 }
 
-                request.Execute(false);
+                request.Execute(false, skipAssets);
 
                 return true;
             }
@@ -331,7 +333,7 @@ namespace Aurora.Modules.Archivers
                 if (newParams.Count < 6)
                 {
                     MainConsole.Instance.Error(
-                        "[INVENTORY ARCHIVER]: usage is load iar [--merge] <first name> <last name> <inventory path> <user password> [<load file path>]");
+                        "[INVENTORY ARCHIVER]: usage is load iar [--skip-assets] [--merge] <first name> <last name> <inventory path> <user password> [<load file path>]");
                     return;
                 }
 

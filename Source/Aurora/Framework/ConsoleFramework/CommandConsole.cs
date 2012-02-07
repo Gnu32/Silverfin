@@ -29,6 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using Nini.Config;
 using log4net.Core;
 #if NET_4_0
@@ -175,14 +176,15 @@ namespace Aurora.Framework
             {
                 if (command.Length != 0)
                 {
-                    string innerPath = string.Join(" ", command);
+                    /*string innerPath = string.Join(" ", command);
                     if (!_ConsoleIsCaseSensitive)
                         innerPath = innerPath.ToLower();
                     if (ourPath != "")
                         innerPath = innerPath.Replace(ourPath, "");
                     if (innerPath.StartsWith(" "))
-                        innerPath = innerPath.Remove(0, 1);
-                    string[] commandPath = innerPath.Split(new string[1] {" "}, StringSplitOptions.RemoveEmptyEntries);
+                        innerPath = innerPath.Remove(0, 1);*/
+                    //string[] commandPath = innerPath.Split(new string[1] {" "}, StringSplitOptions.RemoveEmptyEntries);
+                    string[] commandPath = command;
                     if (commandPath.Length == 1 || !m_allowSubSets)
                     {
                         for (int i = 1; i <= command.Length; i++)
@@ -270,6 +272,7 @@ namespace Aurora.Framework
                         CommandSet downTheTree;
                         if (commandsets.TryGetValue(cmdToExecute, out downTheTree))
                         {
+                            
                             return downTheTree.ExecuteCommand(commandPath);
                         }
                         else
