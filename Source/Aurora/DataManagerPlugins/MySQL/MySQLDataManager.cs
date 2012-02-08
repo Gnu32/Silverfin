@@ -121,7 +121,16 @@ namespace Aurora.DataManager.MySQL
             }
             catch (Exception e)
             {
-                MainConsole.Instance.Error("[MySQLDataLoader] ExecuteNonQuery(" + sql + "), " + e);
+                // GNU32: Check if made n00b error of forgetting to put the MySQL server up
+                if (sql.Contains("opensim") && e.GetType().ToString().Contains("MySqlException"))
+                {
+                    MainConsole.Instance.Error("[MySQLDataLoader]: Could not connect to server. Is it up and reachable? " + e.Message);
+                    Environment.Exit(1); // This should be safe, since we've not connected to anything...
+                }
+                else
+                {
+                    MainConsole.Instance.Error("[MySQLDataLoader] ExecuteNonQuery(" + sql + "), " + e);
+                }
             }
         }
 
